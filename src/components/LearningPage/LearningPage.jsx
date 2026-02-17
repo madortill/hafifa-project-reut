@@ -1,5 +1,5 @@
 
-עןאimport React, { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header.jsx";
 import tillLogo from "../../assets/images/logoTill.png";
