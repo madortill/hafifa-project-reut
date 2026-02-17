@@ -1,0 +1,371 @@
+
+
+.star{
+  width: 2px;
+  height: 2px;
+  box-shadow: multi-box-shadow(2000);
+  animation: move 50s infinite;
+}
+    
+   
+
+@keyframes move{
+    
+    from{
+
+        transform: translateX(0px);
+    }
+    to{
+        transform: translateX(20px);
+    }
+}
+
+body {
+  margin: 0;
+  background: #91a3ce;
+  overflow-x: hidden;
+  font-family: sans-serif;
+}
+
+.LearningPage {
+  position: relative;
+  width: 100%;
+  max-width: 480px;  
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at center, #000000 0%, #0d0d0d 100%);
+  overflow: hidden;
+}
+
+/* לוגו */
+.till-logo {
+  position: absolute;
+  top: 1rem;
+  left: 0.5rem;
+  height: 6%;
+  width: 9%;
+}
+
+/* כפתור */
+button {
+  margin-top: 1rem;
+  padding: 12px 24px;
+  border-radius: 25px;
+  border: none;
+  background-color: #4ddeff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  animation: move 20s linear infinite;
+}
+
+@keyframes move {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-100vh); }
+}
+
+@keyframes float {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-3px);
+  }
+}
+.astroide {
+    position: absolute;
+    left: -3%;
+    top:30%;
+}
+#astroide2 {
+    position: absolute;
+    right: -3%;
+    top:70%;
+}
+
+
+.LearningPage {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at center, #000000 0%, #0d0d0d 100%);
+  overflow: hidden;
+  padding-top: 25vh;
+}
+
+.till-logo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  width: 3rem;
+  height: 3rem;
+}
+
+.astroide {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+}
+
+#astroide1 {
+  top: 30%;
+  left: -3%;
+}
+
+#astroide2 {
+  top: 70%;
+  right: -3%;
+}
+
+.stars-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  animation-name: move;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100vh);
+  }
+}
+
+.page-content {
+  margin-top: 5vh;
+  text-align: center;
+  color: white;
+  padding: 0 1rem;
+  font-size: 1rem;
+
+padding: 0px 5px;
+gap: 10px;
+
+width: 60%;
+background: rgba(55, 50, 50, 0.72);
+
+}
+
+.page-content h2 {
+  color: #fdfdfd; 
+  margin-bottom: 1rem;
+}
+
+.navigation-buttons {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 1rem 2rem;
+}
+
+.navigation-buttons img {
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+}
+.LearningPage {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: radial-gradient(ellipse at center, #000000 0%, #0d0d0d 100%);
+  overflow: hidden;
+  font-family: sans-serif;
+}
+
+.page-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  padding-top: 10vh;
+  padding-bottom: 80px; /* מרווח לכפתורים בתחתית */
+  pointer-events: none;
+
+
+}
+
+/* תוכן עמוד */
+.page-content {
+  width: 90%;
+  text-align: center;
+  color: white;
+  margin-bottom: 1rem;
+}
+
+.page-content h2 {
+  color: #4ddeff; /* כותרת משנית בכחול */
+  margin-bottom: 0.5rem;
+}
+
+/* כפתורי ניווט - תמיד בתחתית המסך */
+.navigation-buttons {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 2rem;
+}
+
+.navigation-buttons button,
+.navigation-buttons img {
+  cursor: pointer;
+  height: 10%;
+  width: 10%;
+  border: none;
+  background: none;
+  color: white;
+}
+
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: sans-serif;
+  background: #000;
+}
+
+/* קונטיינר ראשי */
+.LearningPage {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at center, #000 0%, #0d0d0d 100%);
+  overflow: hidden;
+}
+
+/* לוגו */
+.till-logo {
+  position: absolute;
+  top: 2vh;
+  left: 3vw;
+  width: 12vw;
+  max-width: 50px;
+  height: auto;
+}
+
+/* אסטרואידים צדדיים */
+.astroide {
+  position: absolute;
+  width: 12vw;
+  max-width: 50px;
+  height: auto;
+}
+
+#astroide1 {
+  top: 35vh;
+  left: -4vw;
+}
+
+#astroide2 {
+  top: 65vh;
+  right: -4vw;
+}
+
+/* אזור תוכן */
+.page-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20vh 5vw 15vh;
+}
+
+/* תוכן */
+.page-content {
+  width: 90%;
+  max-width: 320px;
+  text-align: center;
+  color: white;
+  background: rgba(40, 40, 40, 0.75);
+  padding: 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+}
+
+/* כפתורי ניווט תחתונים */
+.navigation-buttons {
+  position: absolute;
+  bottom: 4vh;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 8vw;
+}
+
+.navigation-buttons button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #4ddeff;
+  color: #000;
+  font-weight: bold;
+}
+
+.navigation-buttons img {
+  width: 10vw;
+  max-width: 40px;
+  height: auto;
+  cursor: pointer;
+}
+.stars-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: move linear infinite;
+}
+
+@keyframes move {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100vh); }
+}

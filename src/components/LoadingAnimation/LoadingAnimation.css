@@ -1,0 +1,150 @@
+/* #container-animation {
+    width: 100vw;
+  height: 100vh ;
+  display: flex ;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#animation {
+    width: 100%;
+    height: 100%;
+} */
+#container-animation {
+  position: fixed;
+  inset: 0;
+  background-color: #081131;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+#animation {
+  width: 90%;
+  max-width: 350px;
+  z-index: 1;
+}
+
+/* אסטרואיד */
+.asteroid-img {
+  position: absolute;
+  width: 120px;
+  top: -150px;
+  right: -150px;
+  animation: flyAsteroid 2.5s linear forwards;
+  z-index: 1;
+}
+
+/* פיצוץ ארוך יותר */
+.explosion {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #fff200, #ff6a00, #ff0000, transparent);
+  border-radius: 50%;
+  animation: explode 2s ease-out forwards;
+  z-index: 2;
+   pointer-events: none;
+}
+
+@keyframes flyAsteroid {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-300px, 500px);
+  }
+}
+
+@keyframes explode {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.4);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}
+
+/* מסך טקסט */
+.story-screen {
+  animation: fadeIn 1.5s ease forwards;
+  max-width: 400px;
+    max-width: 70%;
+      z-index: 2; /* מעל הכוכבים */
+  animation: float 3s ease-in-out infinite alternate;
+
+
+}
+
+.story-screen h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+.story-screen p {
+  font-size: 18px;
+  line-height: 1.6;
+
+}
+
+.story-screen button {
+  margin-top: 25px;
+  padding: 12px 30px;
+  font-size: 18px;
+  border-radius: 30px;
+  border: none;
+  background: #59c6df;
+  color: #081131;
+  cursor: pointer;
+  transition: 0.3s;
+    filter: drop-shadow( 0 0 10px rgba(163, 195, 202, 0.986));
+
+}
+
+.story-screen button:hover {
+  transform: scale(1.1);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.star {
+  width: 2px;
+  height: 2px;
+  box-shadow: multi-box-shadow(2000);
+  animation: move 50s infinite;
+    pointer-events: none;
+
+}    
+  
+@keyframes move{
+    
+    from{
+
+        transform: translateX(0px);
+    }
+    to{
+        transform: translateX(20px);
+    }
+}
+@keyframes float {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-3px);
+  }
+}

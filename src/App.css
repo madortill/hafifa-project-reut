@@ -1,0 +1,119 @@
+
+:root {
+  font-size: calc(10px + 0.5vw);
+  text-align: center;
+  /* background: radial-gradient(circle at 20% 20%, #0e1447, #05081b);  */
+   height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  color:  #f8faff; 
+  font-family: 'ploni-regular-aaa';
+}
+@font-face {
+  font-family: "hebbo";
+  src: url("./assets/fonts/Heebo-Medium.ttf") ;
+}
+
+
+.app {
+      font-size: calc(10px + 0.5vw);
+    background-repeat: no-repeat;
+    background-size: 100vw 100vh;
+  max-width: 430px;
+  min-height: 100vh;
+  height: 850px;       
+  max-height: 100vh;    
+    overflow-y: auto;
+  margin: 0 auto;
+  
+}
+
+.app {
+  font-size: 1.8rem;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  top: 0rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100vh;
+  font-family: "hebbo";
+
+    max-width: 430px;
+  min-height: 100vh;
+  height: 850px;       
+  max-height: 100vh;    
+    overflow-y: auto;
+  margin: 0 auto;
+    background-color: #131212;
+  background: radial-gradient(circle at 20% 20%, #0b103b, #05081b); 
+}
+.app {
+  position: relative;          
+  width: 100%;
+  max-width: 430px;            
+  height: 100vh;                
+  margin: 0 auto;
+  overflow: hidden;           
+  display: flex;
+  flex-direction: column;      
+  background: radial-gradient(circle at 20% 20%, #080a1b, #0c0e18);
+}
+
+.logo {
+  height: 7rem;
+  margin-right: 1rem;
+  z-index: 1;
+  filter: drop-shadow( 0 0 10px rgba(6, 12, 14, 0.1));
+}
+
+.till-logo {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 1;
+  height: 4rem;
+  width: 4rem;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #0c0f16;
+  overflow: hidden;
+  direction: rtl;
+  width: 100%;
+  
+}
+body {
+  background: #91a3ce;
+}
+
+.star{
+  width: 2px;
+  height: 2px;
+  box-shadow: multi-box-shadow(2000);
+  animation: move 50s infinite;
+}
+    
+  
+@keyframes move{
+    
+    from{
+
+        transform: translateX(0px);
+    }
+    to{
+        transform: translateX(20px);
+    }
+}
+
+
+
+
+::selection{
+    color: #05081b;
+    background-color: #f8faff;
+}
