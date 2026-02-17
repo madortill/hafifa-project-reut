@@ -1,14 +1,11 @@
 
-
-// export default  LearningPage;
-import React, { useState } from "react";
+עןאimport React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header.jsx";
 import tillLogo from "../../assets/images/logoTill.png";
 import nextBtn from "../../assets/images/next.svg";
 import astroide from "../../assets/images/asteroid.svg";
 import "../../stars.sass";
-// JSON של תוכן
 import learningDataJson from "../../data.json";
 
 import Carousel from "../Carusel/Carusel.jsx";
@@ -41,7 +38,6 @@ const handleBack = () => {
 
   return (
     <div className="LearningPage">
-      {/* כוכבים */}
         <div className="star"></div>
 
       <Header chapterName={pageData.chapterName} />
