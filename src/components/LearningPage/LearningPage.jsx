@@ -5,7 +5,6 @@ import Header from "../Header/Header.jsx";
 import tillLogo from "../../assets/images/logoTill.png";
 import nextBtn from "../../assets/images/next.svg";
 import astroide from "../../assets/images/asteroid.svg";
-import "../../stars.sass";
 import learningDataJson from "../../data.json";
 
 import Carousel from "../Carusel/Carusel.jsx";

@@ -37,7 +37,6 @@ import "./LoadingAnimation.css";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { useNavigate } from "react-router-dom";
 import asteroidImg from "../../assets/images/asteroid.svg";
-import '../../stars.sass';
 
 const LoadingAnimation = () => {
   const navigate = useNavigate();

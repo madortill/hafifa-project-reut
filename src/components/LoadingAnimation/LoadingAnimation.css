@@ -79,8 +79,8 @@
 /* מסך טקסט */
 .story-screen {
   animation: fadeIn 1.5s ease forwards;
-  max-width: 400px;
-    max-width: 70%;
+  max-width: 300px;
+    /* max-width: 60%; */
       z-index: 2; /* מעל הכוכבים */
   animation: float 3s ease-in-out infinite alternate;
 
