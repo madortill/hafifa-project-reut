@@ -1,0 +1,137 @@
+/* === Asteroid Ninja === */
+.ninja-wrap {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.ninja-field {
+  position: absolute;
+  inset: 0;
+  top: 50px;
+}
+
+.ninja-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  background: rgba(10, 10, 15, 0.85);
+  z-index: 10;
+  padding: 24px;
+  text-align: center;
+  animation: fadeSlideIn 0.3s ease;
+}
+
+.ninja-emoji {
+  font-size: 3.5rem;
+}
+
+.ninja-title {
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+.ninja-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 260px;
+}
+
+.ninja-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.retry-btn {
+  background: rgba(232, 213, 176, 0.1);
+  border: 1px solid rgba(232, 213, 176, 0.3);
+  color: var(--accent);
+  border-radius: 50px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: 'Heebo', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.retry-btn:hover {
+  background: rgba(232, 213, 176, 0.2);
+}
+
+/* HUD */
+.ninja-hud {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  background: rgba(10, 10, 15, 0.7);
+  border-bottom: 1px solid rgba(232, 213, 176, 0.1);
+}
+
+.hud-score {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.hud-lives {
+  display: flex;
+  gap: 4px;
+}
+
+.life {
+  font-size: 1.1rem;
+  transition: all 0.3s;
+}
+
+.life.alive {
+  color: var(--red-light);
+  filter: drop-shadow(0 0 4px rgba(231, 76, 60, 0.6));
+}
+
+.life.dead {
+  color: rgba(255,255,255,0.1);
+}
+
+/* Asteroid button */
+.ninja-asteroid {
+  position: absolute;
+  border-radius: 40% 60% 50% 55% / 45% 50% 60% 40%;
+  border: none;
+  cursor: crosshair;
+  touch-action: none;
+  transition: none;
+}
+
+.ninja-asteroid:active {
+  transform: scale(0.9) rotate(0deg) !important;
+}
+
+/* Explosion */
+.explosion {
+  position: absolute;
+  font-size: 2.4rem;
+  transform: translate(-50%, -50%);
+  animation: explode 0.5s ease forwards;
+  pointer-events: none;
+  z-index: 20;
+}
+
+@keyframes explode {
+  0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+  50% { transform: translate(-50%, -50%) scale(1.4); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+}

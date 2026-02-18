@@ -9,13 +9,19 @@ import "../../stars.sass";
 import learningDataJson from "../../data.json";
 
 import Carousel from "../Carusel/Carusel.jsx";
+import MemoryGame from "../MemoryGame/MemoryGame.jsx";
 
 import "./LearningPage.css";
 
 const LearningPage = () => {
   const navigate = useNavigate();
-  const learningData = learningDataJson.pages; 
-  const [currentPage, setCurrentPage] = useState(0);
+ const learningData = learningDataJson?.pages || [];
+const [currentPage, setCurrentPage] = useState(0);
+
+const pageData = learningData[currentPage];
+
+if (!pageData) return null;
+
 
   const handleNext = () => {
     if (currentPage < learningData.length - 1) {
@@ -34,8 +40,6 @@ const handleBack = () => {
   }
 };
 
-  const pageData = learningData[currentPage];
-
   return (
     <div className="LearningPage">
         <div className="star"></div>
@@ -46,18 +50,18 @@ const handleBack = () => {
   <img src={astroide} onClick={handleBack} id="astroide1" className="astroide" alt="astroide" />
   <img src={astroide} onClick={handleNext} id="astroide2" className="astroide" alt="astroide" />
 
-  <div className="page-container">
-    <div className="page-content">
-      {pageData.pageType === "carusel" ? (
-        <Carousel />
-      ) : (
-        <>
-          {pageData.subTitle && <h2>{pageData.subTitle}</h2>}
-          <p>{pageData.content}</p>
-        </>
-      )}
-    </div>
+<div className="page-container">
+  <div className="page-content">
+    {pageData.pageType === "carusel" && <Carousel />}
+    {pageData.pageType === "game" && <MemoryGame />}
+    {pageData.pageType !== "carusel" && pageData.pageType !== "game" && (
+      <>
+        {pageData.subTitle && <h2>{pageData.subTitle}</h2>}
+        <p>{pageData.content}</p>
+      </>
+    )}
   </div>
+</div>
 
   {/* כפתורי ניווט */}
   <div className="navigation-buttons">

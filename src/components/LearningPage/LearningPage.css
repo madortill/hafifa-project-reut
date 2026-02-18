@@ -369,3 +369,110 @@ body {
   from { transform: translateY(0); }
   to { transform: translateY(-100vh); }
 }
+
+.LearningPage {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  min-height: 100vh;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  background: radial-gradient(circle at center, #000 0%, #0d0d0d 100%);
+  overflow: hidden;
+}
+
+/* לוגו */
+.till-logo {
+  position: absolute;
+  top: 2vh;
+  left: 4vw;
+  width: 40px;
+  z-index: 5;
+}
+
+/* אסטרואידים */
+.astroide {
+  position: absolute;
+  width: 45px;
+  cursor: pointer;
+  z-index: 5;
+}
+
+#astroide1 {
+  top: 40vh;
+  left: -15px;
+}
+
+#astroide2 {
+  top: 40vh;
+  right: -15px;
+}
+
+/* כוכבים */
+.stars-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: move linear infinite;
+}
+
+@keyframes move {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100vh); }
+}
+
+/* תוכן */
+.page-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 5vw 0;
+  box-sizing: border-box;
+}
+
+
+.page-content {
+  width: 100%;
+  max-width: 340px;
+  background: rgba(40, 40, 40, 0.85);
+  padding: 20px;
+  border-radius: 18px;
+  color: white;
+  text-align: center;
+
+  /* חשוב!!! */
+  max-height: 60vh;
+  overflow-y: auto;
+}
+
+/* ניווט תחתון */
+.navigation-buttons {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 8vw;
+  box-sizing: border-box;
+  z-index: 5;
+}
+
+.navigation-buttons button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  background: #4ddeff;
+  color: #000;
+  font-weight: bold;
+  cursor: pointer;
+}

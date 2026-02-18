@@ -72,6 +72,14 @@ path {
   pointer-events: none; /* כדי שלא יפריע לקליקים */
   user-select: none;
 }
+.header-container {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
 
 
 
@@ -84,7 +92,6 @@ path {
   height: 180px;  
   overflow: visible;
   background: transparent;
-  z-index: 2;        /* מעל כל שאר האלמנטים */
 }
 
 

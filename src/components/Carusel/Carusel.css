@@ -1,104 +1,121 @@
-.carousel-container {
-  max-width: 450px;
-  margin: 20px auto;
-  direction: rtl;
-  font-family: sans-serif;
-  padding: 15px;
+/* אנימציית נצנוץ לרקע */
+@keyframes spaceTwinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 1; }
 }
 
-.carousel-viewport {
-  overflow: hidden;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  background: #000;
-  position: relative;
+/* אנימציית ציפה לאסטרואיד (Floating) */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
 }
 
-.carousel-flex {
+/* אנימציית כניסה לטקסט */
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.carousel-screen {
+  background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
+   width: 100%;
+  height: auto;        
   display: flex;
-}
-
-.carousel-slide {
-  flex: 0 0 100%;
-  min-width: 0;
-  position: relative;
-  height: 450px;
-}
-
-.carousel-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0.8;
-}
-
-.carousel-overlay {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  padding: 30px 20px;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 20%, transparent);
+  flex-direction: column;
   color: white;
+  direction: rtl;
+  animation: spaceTwinkle 4s infinite ease-in-out;
 }
 
-.carousel-subtitle {
-  color: #ff4d4d;
-  font-size: 0.9rem;
-  margin-bottom: 5px;
-  display: block;
+.header-area { padding: 15px; text-align: center; }
+.logo-img { width: 100%; max-width: 300px; }
+
+.main-carousel-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
-.carousel-content {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  margin: 0;
+.embla-slide {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 25px;
+  /* האנימציה תפעל כל פעם שהסלייד נטען */
+  animation: slideUpFade 0.6s ease-out forwards;
 }
 
-/* כפתורי חצים */
-.nav-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(255, 255, 255, 0.9);
-  border: none;
-  width: 40px;
-  height: 40px;
+.asteroid-title {
+  font-size: 24px;
+  margin-bottom: 25px;
+  text-shadow: 0 0 10px rgba(255,255,255,0.3);
+}
+
+.asteroid-circle-frame {
+  position: relative;
+  width: 210px;
+  height: 210px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
-  cursor: pointer;
-  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  transition: all 0.2s;
+  margin-bottom: 30px;
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
 }
 
-.nav-btn:active { scale: 0.9; }
-.prev-btn { right: 10px; }
-.next-btn { left: 10px; }
-
-/* נקודות (Dots) */
-.dots-container {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  margin-top: 15px;
+.asteroid-img {
+  width: 130px;
+  animation: float 4s infinite ease-in-out;
 }
 
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #ccc;
-  border: none;
-  padding: 0;
-  cursor: pointer;
-}
-
-.dot--active {
-  background: #ff4d4d;
-  width: 25px;
+.asteroid-label-inner {
+  position: absolute;
+  right: 10px;
+  background: rgba(0,0,0,0.4);
+  padding: 4px 8px;
   border-radius: 10px;
+  font-size: 13px;
+}
+
+.asteroid-description {
+  text-align: center;
+  font-size: 18px;
+  line-height: 1.4;
+  color: #e0e0e0;
+}
+
+.nav-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  padding: 15px;
+  transition: transform 0.2s;
+}
+
+.nav-btn:active { transform: scale(0.8); }
+
+.footer-area {
+  padding-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dot-item {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #444;
   transition: all 0.3s;
+}
+
+.dot-item.active {
+  background: #fff;
+  box-shadow: 0 0 8px #fff;
+  transform: scale(1.2);
 }
