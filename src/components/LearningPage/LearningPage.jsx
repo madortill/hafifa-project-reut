@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Header from "../Header/Header.jsx";
 import tillLogo from "../../assets/images/logoTill.png";
@@ -39,6 +39,13 @@ const handleBack = () => {
   }
 };
 
+
+  useEffect(() => {
+    if (pageData.pageType === "AstroidGame") {
+      navigate("/AstroidNinja");
+    }
+  }, [pageData.pageType, navigate]);
+
   return (
     <div className="LearningPage">
         <div className="star"></div>
@@ -49,18 +56,21 @@ const handleBack = () => {
   <img src={astroide} onClick={handleBack} id="astroide1" className="astroide" alt="astroide" />
   <img src={astroide} onClick={handleNext} id="astroide2" className="astroide" alt="astroide" />
 
-<div className="page-container">
-  <div className="page-content">
-    {pageData.pageType === "carusel" && <Carousel />}
-    {pageData.pageType === "game" && <MemoryGame />}
-    {pageData.pageType !== "carusel" && pageData.pageType !== "game" && (
-      <>
-        {pageData.subTitle && <h2>{pageData.subTitle}</h2>}
-        <p>{pageData.content}</p>
-      </>
-    )}
-  </div>
-</div>
+ <div className="page-container">
+      <div className="page-content">
+        {pageData.pageType === "carusel" && <Carousel />}
+        {pageData.pageType === "game" && <MemoryGame />}
+        {pageData.pageType !== "carusel" &&
+         pageData.pageType !== "game" &&
+         pageData.pageType !== "AstroidGame" && (
+          <>
+            {pageData.subTitle && <h2>{pageData.subTitle}</h2>}
+            <p>{pageData.content}</p>
+          </>
+        )}
+      </div>
+    </div>
+  
 
   {/* כפתורי ניווט */}
   <div className="navigation-buttons">

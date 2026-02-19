@@ -7,6 +7,8 @@ import OpenPage from "./components/openPage/OpenPage.jsx"
 import LoadingAnimation from "./components/LoadingAnimation/LoadingAnimation.jsx"
 import { Routes, Route } from "react-router-dom";
 import LearningPage from "./components/LearningPage/LearningPage.jsx";
+import AsteroidNinja from "./components/AstroidNinja/AstroidNinja.jsx";
+import EndPage from "./components/EndPage/EndPage.jsx";
 
 const App=()=> {
 
@@ -17,7 +19,8 @@ const App=()=> {
         <Route path="/" element={<LoadingAnimation />} />
         <Route path="/start" element={<OpenPage />} />
         <Route path="/learning" element={<LearningPage />} />
-        <Route path="/end" element={<endPage />} />
+        <Route path="/AstroidNinja" element={<AsteroidNinja />} />
+        <Route path="/end" element={<EndPage />} />
       </Routes>
     </div>
     </>

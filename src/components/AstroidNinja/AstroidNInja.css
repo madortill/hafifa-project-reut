@@ -1,4 +1,4 @@
-/* === Asteroid Ninja === */
+/* === Asteroid Ninja ===
 .ninja-wrap {
   position: relative;
   height: 100%;
@@ -134,4 +134,348 @@
   0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
   50% { transform: translate(-50%, -50%) scale(1.4); opacity: 1; }
   100% { transform: translate(-50%, -50%) scale(2); opacity: 0; }
+}
+
+
+
+
+
+.ninja-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #111;
+  overflow: hidden;
+  touch-action: none;
+  font-family: 'Heebo', sans-serif;
+  direction: rtl;
+}
+
+/* מד התקדמות ירוק בצד שמאל */
+.progress-sidebar {
+  position: absolute;
+  left: 15px;
+  bottom: 50px;
+  width: 30px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 30;
+}
+
+.progress-bar-bg {
+  width: 12px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.progress-fill {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #4caf50; /* ירוק */
+  box-shadow: 0 0 10px #4caf50;
+  transition: height 0.3s ease;
+}
+
+.progress-text {
+  color: #4caf50;
+  font-size: 12px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+/* HUD */
+.ninja-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 25;
+}
+
+.heart { font-size: 1.5rem; margin-left: 5px; }
+.heart.filled { color: #ff4d4d; }
+.heart.empty { color: #333; }
+.score-display { color: #fff; font-size: 1.2rem; }
+
+/* אסטרואידים */
+.ninja-asteroid-obj {
+  position: absolute;
+  pointer-events: none;
+}
+
+.ninja-asteroid-img {
+  width: 65px;
+  height: 65px;
+  pointer-events: auto; /* מאפשר זיהוי חיתוך */
+  filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
+}
+
+/* פופאפ */
+.ninja-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.ninja-modal {
+  background: #222;
+  border: 2px solid #444;
+  padding: 40px;
+  border-radius: 25px;
+  text-align: center;
+  color: white;
+  width: 80%;
+  max-width: 320px;
+  animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.play-btn {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.modal-icon { font-size: 4rem; margin-bottom: 10px; }
+
+@keyframes popIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.explosion-effect {
+  position: absolute;
+  font-size: 3rem;
+  transform: translate(-50%, -50%);
+  animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; transform: translate(-50%, -50%) scale(2); }
+}
+
+
+
+
+
+
+ */
+
+
+
+
+.ninja-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #111;
+  overflow: hidden;
+  touch-action: none;
+  font-family: 'Heebo', sans-serif;
+  direction: rtl;
+}
+
+/* HUD */
+.ninja-header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  z-index: 25;
+}
+
+.heart {
+  font-size: 1.5rem;
+  margin-left: 5px;
+}
+
+.heart.filled { color: #ff4d4d; }
+.heart.empty { color: #333; }
+
+.score-display {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+/* Progress */
+.progress-sidebar {
+  position: absolute;
+  left: 15px;
+  bottom: 50px;
+  width: 30px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 30;
+}
+
+.progress-bar-bg {
+  width: 12px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: #4caf50;
+  box-shadow: 0 0 10px #4caf50;
+  transition: height 0.3s ease;
+}
+
+.progress-text {
+  color: #4caf50;
+  font-size: 12px;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+/* Asteroids */
+.ninja-asteroid-obj {
+  position: absolute;
+  pointer-events: none;
+}
+
+.ninja-asteroid-img {
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
+}
+
+/* Slash */
+.slash-svg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.slash-svg polyline {
+  fill: none;
+  stroke: white;
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Modal */
+.ninja-modal-overlay {
+  position: absolute;
+  inset: 0;
+background: radial-gradient(50% 50% at 50% 50%, rgba(28, 26, 36, 0.42) 0%, #15141A 95.67%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.ninja-modal {
+  background: #222;
+  padding: 40px;
+  border-radius: 25px;
+  text-align: center;
+  color: white;
+  width: 80%;
+  max-width: 320px;
+  animation: popIn 0.3s ease;
+
+
+
+background: radial-gradient(50% 50% at 50% 50%, rgba(28, 26, 36, 0.42) 0%, #15141A 95.67%);
+
+}
+
+.play-btn {
+  background: #fff;
+  color: #000;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.modal-icon {
+  font-size: 4rem;
+  margin-bottom: 10px;
+}
+
+@keyframes popIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.explosion-effect {
+  position: absolute;
+  font-size: 3rem;
+  transform: translate(-50%, -50%);
+  animation: fadeOut 0.5s forwards;
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; transform: translate(-50%, -50%) scale(2); }
+}
+.side-astroid {
+  position: absolute;
+  width: 6vw;        
+  min-width: 30px;   
+  max-width: 60px;   
+  cursor: pointer;
+  z-index: 5;
+}
+
+#astroide1 {
+  top: 40%;
+  left: -2%;
+}
+
+#astroide2 {
+  top: 60%;
+  right: -2%;
+}
+
+.astroid-left {
+  top: 40%;
+  left: -2%;
+}
+
+.astroid-rigth {
+  top: 60%;
+  right: -2%;
+}
+
+#astroide3 {
+  top: 40%;
+  left: -2%;
+}
+
+#astroide4 {
+  top: 60%;
+  right: -2%;
 }
