@@ -479,3 +479,12 @@ background: radial-gradient(50% 50% at 50% 50%, rgba(28, 26, 36, 0.42) 0%, #1514
   top: 60%;
   right: -2%;
 }
+.correct {
+  background-color: #2ecc71 !important;
+  color: white;
+}
+
+.wrong {
+  background-color: #e74c3c !important;
+  color: white;
+}

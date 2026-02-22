@@ -16,7 +16,6 @@ const OpenPage=()=> {
   return (
     <>
       <div className="openPage">
-      <div class="star"></div>
       <img src={tillLogo} className="till-logo" alt="logo" width="30px"/>
       <div className="intro-text">
       <h1>ברוכים הבאים ללומדת 
