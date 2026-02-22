@@ -1,3 +1,156 @@
-.return-btn {
-    
+/* הגדרות כלליות משופרות */
+.end-page {
+    background-color: #333131;
+    background-image: radial-gradient(circle, #444 1px, transparent 1px);
+    background-size: 30px 30px;
+    min-height: 100vh; /* שינוי ל-min-height כדי למנוע חיתוך בתוכן ארוך */
+    width: 100vw;
+    color: white;
+    direction: rtl;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+    font-family: 'Assistant', sans-serif;
+    padding-bottom: 20px;
+}
+
+/* התאמת המיתוג העליון */
+.top-branding {
+    width: 100%;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
+
+.till-logo-end { 
+width: 2rem;
+height: 1rem;
+}
+
+.top-astronaut { 
+    width: clamp(60px, 18vw, 85px);
+    transform: rotate(-10deg); 
+}
+
+/* תוכן מרכזי */
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px; /* מגביל רוחב בטאבלטים/מחשב כדי שלא יתפרס מדי */
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.title-text {
+    font-size: clamp(1.5rem, 8vw, 2.2rem); /* טקסט שמתכווץ במסכים קטנים */
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.1;
+    text-align: center;
+}
+
+.summary-title {
+    font-size: clamp(1rem, 5vw, 1.4rem);
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.divider {
+    width: 60%;
+    max-width: 250px;
+    height: 2px;
+    background-color: white;
+    margin-bottom: 25px;
+}
+
+/* המסלול - החלק הכי רגיש */
+.path-map {
+    position: relative;
+    width: 100%;
+    max-width: 450px; /* מניעת מתיחה של ה-SVG */
+    margin: 0 auto 30px auto;
+}
+
+.path-svg { 
+    width: 100%; 
+    height: auto;
+    display: block;
+}
+
+/* תוויות השלבים - שימוש ב-EM כדי שיקטנו יחד עם גודל הגופן הכללי */
+.step {
+    position: absolute;
+    font-size: clamp(0.65rem, 3vw, 0.85rem);
+    font-weight: 600;
+    max-width: 70px;
+    line-height: 1.1;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+}
+
+/* מיקומים באחוזים כדי לשמור על דיוק על גבי ה-SVG */
+.s1 { top: 32%; left: 2%; }
+.s2 { top: 62%; left: 18%; }
+.s3 { top: 78%; left: 48%; }
+.s4 { top: 58%; right: 22%; }
+.s5 { top: 28%; right: 5%; }
+
+.back-to-start {
+    background-color: #7d7d8d;
+    color: white;
+    border: none;
+    padding: 12px 10%; /* פדינג באחוזים לרוחב */
+    min-width: 200px;
+    border-radius: 20px;
+    font-size: clamp(1rem, 5vw, 1.2rem);
+    font-weight: 600;
+    box-shadow: 0 4px 0px #5a5a6a;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: transform 0.1s;
+}
+
+.back-to-start:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0px #5a5a6a;
+}
+
+/* החייזר והבועה */
+.bottom-alien {
+    position: relative; /* עדיף על fixed בתוך מכולה רספונסיבית */
+    align-self: flex-start;
+    margin-top: auto;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+}
+
+.speech-box {
+    background: #555;
+    border: 2px solid #777;
+    padding: 8px 12px;
+    border-radius: 15px;
+    font-size: clamp(0.75rem, 3.5vw, 0.9rem);
+    max-width: 130px;
+    margin-bottom: -5px;
+    z-index: 2;
+}
+
+.alien-footer-img {
+    width: clamp(70px, 20vw, 100px);
+    z-index: 1;
+}
+
+/* Media Query למסכים קטנים מאוד (iPhone SE וכדומה) */
+@media (max-width: 350px) {
+    .step { font-size: 0.6rem; }
+    .title-text { font-size: 1.3rem; }
+    .back-to-start { padding: 10px 5%; min-width: 150px; }
 }

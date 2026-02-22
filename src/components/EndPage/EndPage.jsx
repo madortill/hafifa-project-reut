@@ -14,13 +14,47 @@ const navigate=useNavigate();
 
 return( 
     <>
-    <Header chapterName="סוף לומדה" />
-        <h2>איזה כיף סיימת את הלומדה !  </h2>
-        <h4>אלה כל הנושאים שעברנו עליהם:</h4>
-              <img className="navBar" src={navBar} onClick={()=>navigate("/learning")}></img>
-          <img src={astroide}  id="astroide1" className="astroide" alt="astroide" />
-          <img src={astroide}  id="astroide2" className="astroide" alt="astroide" />
-        <button className="return=btn" onClick={(()=>navigate("/start"))}>לחזור לתחילת הלומדה</button>
+   <div className="end-page-container">
+            
+            <div className="end-page">
+            {/* לוגו מדור טיל ואסטרונאוט בחלק העליון */}
+            <Header chapterName="סוף לומדה" />
+            <div className="top-branding">
+                <img src={tillLogo} className="till-logo-end" alt="מדור טיל" />
+                <img src={astronout} className="top-astronaut" alt="astronaut" />
+            </div>
+
+            <div className="main-content">
+                <h1 className="title-text">איזה כיף סיימת <br/> את הלומדה!</h1>
+                
+                <div className="summary-section">
+                    <p className="summary-title">אלה כל הנושאים שעברנו עליהם:</p>
+                    <div className="divider"></div>
+                </div>
+
+                <div className="path-map">
+                    <img src={navBar} className="path-svg" alt="navigation path" />
+                    {/* תוויות על המסלול */}
+                    <span className="step s1">משחק</span>
+                    <span className="step s2">איך מפוצצים אסטרואיד?</span>
+                    <span className="step s3">סוגי אסטרואידים</span>
+                    <span className="step s4">פיצוץ אסטרואיד</span>
+                    <span className="step s5">מהו אסטרואיד?</span>
+                </div>
+
+                <button className="back-to-start" onClick={() => navigate("/start")}>
+                    לחזור לתחילת הלומדה
+                </button>
+
+                <div className="bottom-alien">
+                    <div className="speech-box">
+                        עכשיו אתם מוכשרים להיות אסטרונאוטים
+                    </div>
+                    <img src={alien} className="alien-footer-img" alt="alien" />
+                </div>
+            </div>
+        </div>
+        </div>
     </>
     )
 }
