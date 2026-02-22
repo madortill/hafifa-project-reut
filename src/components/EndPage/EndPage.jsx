@@ -2,7 +2,9 @@ import { useNavigate } from "react-router-dom";
 import navBar from "../../assets/images/navBar.svg"
 import astroide from "../../assets/images/asteroid.svg";
 import Header from "../Header/Header.jsx"
-
+import alien from "../../assets/images/alien.svg"
+import astronout from "../../assets/images/astronaut.svg"
+import tillLogo from "../../assets/images/logoTill.png";
 
 
 const EndPage=()=>{
