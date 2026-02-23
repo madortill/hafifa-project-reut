@@ -1,0 +1,79 @@
+.page-container {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    direction: rtl;
+    padding: 20px;
+    box-sizing: border-box;
+    color: white;
+    font-family: sans-serif;
+}
+
+.page-header {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.till-logo {
+    align-self: flex-start;
+    width: 50px;
+}
+
+.curved-title {
+    font-size: 1.8rem;
+    margin-top: 10px;
+    text-align: center;
+    /* כאן אפשר להוסיף עיצוב מעוגל אם תרצי, כרגע זה טקסט נקי */
+}
+
+.content-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.text-bubble {
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    width: 90%;
+    max-width: 350px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.main-img {
+    max-width: 200px;
+    height: auto;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.learn-text {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.next-arrow-icon {
+    width: 60px;
+    cursor: pointer; /* זה הופך את הסמן ליד כדי שתדעי שזה לחיץ */
+    transition: transform 0.2s;
+}
+
+.next-arrow-icon:active {
+    transform: scale(0.9); /* אפקט לחיצה */
+}

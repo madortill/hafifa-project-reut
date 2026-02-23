@@ -3,7 +3,6 @@ import { useState } from "react";
 import "./OpenPage.css";
 import tillLogo from "../../assets/images/logoTill.png";
 import Header from "../Header/Header.jsx"
-import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 import { useNavigate } from "react-router-dom";
 import nextBtn from "../../assets/images/next.svg"
 import navBar from "../../assets/images/navBar.svg"

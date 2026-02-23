@@ -9,6 +9,7 @@ import { Routes, Route } from "react-router-dom";
 import LearningPage from "./components/LearningPage/LearningPage.jsx";
 import AsteroidNinja from "./components/AstroidNinja/AstroidNinja.jsx";
 import EndPage from "./components/EndPage/EndPage.jsx";
+import CordinationPage from "./components/CordinationPage/CordinationPage.jsx";
 
 const App=()=> {
 
@@ -19,6 +20,7 @@ const App=()=> {
         <Route path="/" element={<LoadingAnimation />} />
         <Route path="/start" element={<OpenPage />} />
         <Route path="/learning" element={<LearningPage />} />
+        <Route path="/cordination" element={<CordinationPage />} />
         <Route path="/AstroidNinja" element={<AsteroidNinja />} />
         <Route path="/end" element={<EndPage />} />
       </Routes>

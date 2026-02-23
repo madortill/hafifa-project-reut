@@ -60,6 +60,7 @@ const handleBack = () => {
       <div className="page-content">
         {pageData.pageType === "carusel" && <Carousel />}
         {pageData.pageType === "game" && <MemoryGame />}
+        {pageData.pageType === "cordination" && <cordination />}
         {pageData.pageType !== "carusel" &&
          pageData.pageType !== "game" &&
          pageData.pageType !== "AstroidGame" && (
