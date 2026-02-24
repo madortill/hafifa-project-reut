@@ -9,6 +9,18 @@
   touch-action: none;
   font-family: 'Heebo', sans-serif;
   direction: rtl;
+/* Rectangle 22 */
+
+position: absolute;
+width: 364px;
+height: 555px;
+left: 18px;
+top: 210px;
+
+background: rgba(125, 96, 84, 0.8);
+border-radius: 29px;
+
+
 }
 
 /* HUD */
@@ -100,7 +112,6 @@
   stroke-linejoin: round;
 }
 
-/* Modal */
 .ninja-modal-overlay {
   position: absolute;
   inset: 0;
@@ -108,7 +119,10 @@ background: radial-gradient(50% 50% at 50% 50%, rgba(28, 26, 36, 0.42) 0%, #1514
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 100;
+  z-index: 50;
+  background-color: #7D6054;
+
+  
 }
 
 .ninja-modal {
@@ -121,14 +135,22 @@ background: radial-gradient(50% 50% at 50% 50%, rgba(28, 26, 36, 0.42) 0%, #1514
   max-width: 320px;
   animation: popIn 0.3s ease;
 
+/* Rectangle 6 */
+
+width: 80%;
+height: 80%;
+left: 50%;
+top: 0;
+
+border-radius: 54px;
 
 
-background: radial-gradient(50% 50% at 50% 50%, rgba(28, 26, 36, 0.42) 0%, #15141A 95.67%);
+background: radial-gradient(50% 50% at 50% 50%, #1c1a246b 0%, #15141A 95.67%);
 
 }
 
 .play-btn {
-  background: #fff;
+  background: #B4B0C3;
   color: #000;
   border: none;
   padding: 12px 40px;
@@ -142,6 +164,7 @@ background: radial-gradient(50% 50% at 50% 50%, rgba(28, 26, 36, 0.42) 0%, #1514
 .modal-icon {
   font-size: 4rem;
   margin-bottom: 10px;
+  width: 2rem;
 }
 
 @keyframes popIn {
@@ -159,6 +182,7 @@ background: radial-gradient(50% 50% at 50% 50%, rgba(28, 26, 36, 0.42) 0%, #1514
 @keyframes fadeOut {
   to { opacity: 0; transform: translate(-50%, -50%) scale(2); }
 }
+
 .side-astroid {
   position: absolute;
   width: 6vw;        

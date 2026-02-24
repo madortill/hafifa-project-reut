@@ -1,17 +1,19 @@
 
-:root {
+#root {
   font-size: calc(10px + 0.5vw);
   text-align: center;
-  /* background: radial-gradient(circle at 20% 20%, #0e1447, #05081b);  */
-  width: 100vw;
-  color:  #f8faff; 
-  font-family: 'ploni-regular-aaa';
+  color: #f8faff;
+  font-family: "hebbo";
+  position: relative;
+  z-index: 1;
 }
 @font-face {
   font-family: "hebbo";
   src: url("./assets/fonts/Heebo-Medium.ttf") ;
 }
-
+* {
+  pointer-events: auto;
+}
 
 html, body {
   margin: 0;
@@ -23,8 +25,8 @@ html, body {
   font-family: "hebbo";
 }
 
-/* קונטיינר ראשי של האפליקציה */
 .app {
+    font-family: "hebbo";
   width: 100%;
   max-width: 430px;  
   min-height: 100vh;
@@ -32,8 +34,8 @@ html, body {
 
   display: flex;
   flex-direction: column;
-
-  background: radial-gradient(circle at 20% 20%, #080a1b, #0c0e18);
+pointer-events: none;
+  background: radial-gradient(ellipse at center, #000000 0%, #0d0d0d 100%);
 }
 
 
@@ -76,4 +78,7 @@ html, body {
 ::selection{
     color: #05081b;
     background-color: #f8faff;
+}
+.app > * {
+  font-family: "hebbo";
 }

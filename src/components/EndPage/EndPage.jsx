@@ -20,8 +20,6 @@ return(
             {/* לוגו מדור טיל ואסטרונאוט בחלק העליון */}
             <Header chapterName="סוף לומדה" />
             <div className="top-branding">
-                <img src={tillLogo} className="till-logo-end" alt="מדור טיל" />
-                <img src={astronout} className="top-astronaut" alt="astronaut" />
             </div>
 
             <div className="main-content">

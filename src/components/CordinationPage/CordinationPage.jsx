@@ -7,28 +7,29 @@ import brokenEarth from "../../assets/images/brokenEarth.svg";
 import lavian from "../../assets/images/lavian.svg";
 import cordinationImg from "../../assets/images/cordination.svg";
 import nextBtn from "../../assets/images/next.svg";
-import asteroidImg from "../../assets/images/asteroid.svg"; // ודאי שיש לך קובץ כזה
+import asteroidImg from "../../assets/images/asteroid.svg";
+import Header from "../Header/Header";
 
 const CordinationPage = () => {
     const [count, setCount] = useState(0);
 
     const info = [
         {
-            title: "איך נפוצץ אסטרואיד",
+            title: "איך נפוצץ אסטרואיד?",
             text: "אחרי שהכרתם את שלל סוגי האסטרואידים ותרגלתם, הגיע הזמן ללמוד מה התפקיד שלכם כדי שנוכל להציל את כדור הארץ",
             img: brokenEarth,
             showLearnText: true,
             type: "regular"
         },
         {
-            title: "איך נפוצץ אסטרואיד",
+            title: "איך נפוצץ אסטרואיד?",
             text: "תחנת השיגור היא האחראית לחישוב קואורדינטות שבהן האסטרואיד נמצא בכל רגע נתון.",
             img: lavian,
             showLearnText: false,
-            type: "asteroids" // סוג מיוחד לעמוד השני
+            type: "asteroids"
         },
         {
-            title: "מה זה קואורדינטה",
+            title: "מה זה קואורדינטה?",
             text: "קואורדינטה- הן קבוצת מספרים המציינת את מיקומו של גוף. מדובר בעצם במערכת צירים.",
             img: cordinationImg,
             showLearnText: false,
@@ -36,7 +37,8 @@ const CordinationPage = () => {
         }
     ];
 
-    const handleNext = () => {
+    const handleNext = (e) => {
+        if (e) e.stopPropagation(); // עוצר את הלחיצה מפעפוע לדיבים חוסמים
         if (count < info.length - 1) {
             setCount(prev => prev + 1);
         }
@@ -45,62 +47,60 @@ const CordinationPage = () => {
     const currentPage = info[count];
 
     return (
-        <div className="page-container">
-            {/* Header */}
+        <div className="page-container" style={{ pointerEvents: 'auto' }}>
             <header className="page-header">
+                <Header chapterName={currentPage.title}/>
                 <img src={tillLogo} alt="Logo" className="till-logo" />
                 <div className="title-area">
-                    {/* כותרת מעוגלת ב-SVG כדי להתאים לעיצוב בתמונה */}
-                    <svg viewBox="0 0 500 150" className="curve-svg">
-                        <path id="headerCurve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" fill="transparent" />
-                        <text className="curved-text-style">
-                            <textPath xlinkHref="#headerCurve" startOffset="50%" textAnchor="middle">
-                                {currentPage.title}
-                            </textPath>
-                        </text>
-                    </svg>
+                    <h1 className="curved-title-text">{currentPage.title}</h1>
                 </div>
             </header>
 
-            {/* Main Content */}
             <main className="content-section">
                 <div className="text-bubble">
                     <p>{currentPage.text}</p>
                 </div>
-                
-                <div className="image-container">
-                    {/* אם אנחנו בעמוד השני - מציגים 3 אסטרואידים לחיצים */}
-                    {currentPage.type === "asteroids" ? (
-                        <div className="asteroids-grid">
-                            {[1, 2, 3].map((item) => (
-                                <img 
-                                    key={item}
-                                    src={asteroidImg} 
-                                    alt="Asteroid" 
-                                    className="clickable-asteroid" 
-                                    onClick={handleNext} 
-                                />
-                            ))}
+        <div className="image-container">
+            {currentPage.type === "asteroids" ? (
+                <div className="space-scene">
+                    <div className="satellite-wrapper">
+                        <img src={lavian} alt="Satellite" className="satellite-img" />
+                        <div className="coord-bubble">x,y</div>
+                    </div>
+
+                    <div className="asteroids-scatter">
+                        {[1, 2, 3, 4].map((i) => (
+                            <img 
+                                key={i}
+                                src={asteroidImg} 
+                                className={`clickable-asteroid ast-${i}`} 
+                                onClick={handleNext} 
+                                alt="Asteroid"
+                            />
+                        ))}
+                        <div className="main-asteroid-wrapper" onClick={handleNext}>
+                            <img src={asteroidImg} className="clickable-asteroid main-ast" alt="Target" />
+                            <span className="question-mark">?</span>
                         </div>
-                    ) : (
-                        /* עמוד רגיל - תמונה אחת גדולה */
-                        <img src={currentPage.img} alt="Illustration" className="main-img" />
-                    )}
+                    </div>
                 </div>
+            ) : (
+                <div className="simple-image-wrapper">
+                    <img src={currentPage.img} className="main-img" alt="Content" />
+                    {currentPage.img === cordinationImg && <div className="coord-bubble large"></div>}
+                </div>
+            )}
+        </div>
             </main>
 
-            {/* Footer Navigation */}
             <footer className="footer-nav">
                 {currentPage.showLearnText && <h2 className="learn-text">בואו נלמד</h2>}
-                
-                {/* החץ מופיע רק אם זה לא העמוד של האסטרואידים (שם לוחצים על האסטרואיד) */}
                 {currentPage.type !== "asteroids" && (
                     <img 
                         src={nextBtn} 
-                        alt="Next" 
                         className="next-arrow-icon" 
                         onClick={handleNext}
-                        style={{ cursor: 'pointer', zIndex: 10 }} 
+                        style={{ cursor: 'pointer', zIndex: 2, position: 'relative' }} 
                     />
                 )}
             </footer>

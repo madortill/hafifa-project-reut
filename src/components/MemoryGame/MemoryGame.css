@@ -40,7 +40,6 @@
   perspective: 1000px;
   width: 100%;
   aspect-ratio: 1/1;
-  cursor: pointer;
 }
 
 .card-inner {
@@ -217,7 +216,6 @@
   width: 65%;
 }
 
-/* העלמות חלקה לזוג נכון */
 .card.matched {
   animation: fadeOut 0.5s forwards;
 }
@@ -229,7 +227,6 @@
   }
 }
 
-/* פופאפ */
 .popup {
   position: fixed;
   inset: 0;

@@ -114,10 +114,7 @@ export default function MemoryGame() {
   return (
     <div className="memory-screen">
       <div className="header">
-        <img src={astronautImg} className="astronaut" alt="astronaut" />
-        <h1>סוגי אסטרואידים</h1>
       </div>
-
       <p className="instructions">
         התאימו בין סוג האסטרואיד לבין מה שהוא הורס
       </p>

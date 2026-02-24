@@ -1,15 +1,22 @@
+/* ===== Layout ===== */
+
 .page-container {
-    height: 100vh;
+    height: 100dvh;
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     direction: rtl;
-    padding: 20px;
+    padding: 16px;
     box-sizing: border-box;
     color: white;
-    font-family: sans-serif;
+    font-family: 'hebbo', sans-serif;
+    background: radial-gradient(ellipse at center, #1a1a2e 0%, #080810 100%);
+    overflow: hidden;
+    direction: rtl;
 }
+
+/* ===== Header ===== */
 
 .page-header {
     width: 100%;
@@ -18,17 +25,20 @@
     align-items: center;
 }
 
-.till-logo {
-    align-self: flex-start;
-    width: 50px;
+
+.curve-svg {
+    width: 100%;
+    max-width: 340px;
+    margin-top: -10px;
 }
 
-.curved-title {
-    font-size: 1.8rem;
-    margin-top: 10px;
-    text-align: center;
-    /* כאן אפשר להוסיף עיצוב מעוגל אם תרצי, כרגע זה טקסט נקי */
+.curved-text {
+    fill: white;
+    font-size: 5rem;
+    font-weight: bold;
 }
+
+/* ===== Content ===== */
 
 .content-section {
     flex: 1;
@@ -37,43 +47,208 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    gap: 28px;
 }
 
 .text-bubble {
-    background-color: #2c2c2c;
-    padding: 20px;
-    border-radius: 15px;
+    background: rgba(30, 30, 50, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 20px 24px;
+    border-radius: 18px;
     text-align: center;
-    font-size: 1.1rem;
-    margin-bottom: 30px;
-    width: 90%;
-    max-width: 350px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    width: 88%;
+    max-width: 320px;
 }
 
+
 .main-img {
-    max-width: 200px;
+    max-width: 180px;
     height: auto;
 }
+
+/* ===== Asteroids page ===== */
+
+.asteroids-grid {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.asteroid {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.side-img {
+    width: 80px;
+    height: auto;
+}
+
+/* האסטרואיד הלחיץ עם סימן השאלה */
+.asteroid-btn {
+    position: relative;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.question-mark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    pointer-events: none;
+    text-shadow: 0 0 8px rgba(120, 200, 255, 0.9);
+}
+
+/* אנימציית הבהוב */
+@keyframes blink {
+    0%, 100% { opacity: 1; filter: drop-shadow(0 0 10px #7cf); }
+    50%       { opacity: 0.4; filter: drop-shadow(0 0 2px #7cf); }
+}
+
+.asteroid-blink {
+    animation: blink 1.2s ease-in-out infinite;
+}
+
+/* ===== Footer ===== */
 
 .footer-nav {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 20px;
+    gap: 8px;
+    margin-bottom: 12px;
 }
 
 .learn-text {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
+    font-size: 1.4rem;
+    margin: 0;
 }
 
-.next-arrow-icon {
-    width: 60px;
-    cursor: pointer; /* זה הופך את הסמן ליד כדי שתדעי שזה לחיץ */
+/* כפתור החץ - button אמיתי כדי שיהיה לחיץ */
+.next-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.next-btn img {
+    width: 56px;
+    transition: transform 0.15s;
+}
+
+.next-btn:active img {
+    transform: scale(0.88);
+}
+/* מכולה ראשית לתמונה/סצנה */
+.image-container {
+    width: 100%;
+    height: 300px; /* גובה קבוע לסצנת החלל */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* סצנת הלוויין והאסטרואידים */
+.space-scene {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.satellite-wrapper {
+    position: absolute;
+    top: 20%;
+    right: 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.satellite-img {
+    width: 120px;
+    transform: rotate(-15deg);
+}
+
+/* בועת הקואורדינטות x,y */
+.coord-bubble {
+    background: white;
+    color: black;
+    border-radius: 50% 50% 50% 0; /* צורת בועת דיבור */
+    padding: 5px 12px;
+    font-weight: bold;
+    font-size: 0.9rem;
+    border: 2px solid #ff4b2b;
+    position: absolute;
+    top: -10px;
+    right: -10px;
+}
+
+/* פיזור אסטרואידים לחיצים */
+.clickable-asteroid {
+    position: absolute;
+    cursor: pointer;
     transition: transform 0.2s;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+    pointer-events: auto;
+    z-index: 5;
 }
 
-.next-arrow-icon:active {
-    transform: scale(0.9); /* אפקט לחיצה */
+.ast-1 { width: 40px; top: 10%; left: 15%; }
+.ast-2 { width: 35px; bottom: 15%; right: 10%; }
+.ast-3 { width: 30px; top: 50%; left: 5%; }
+.ast-4 { width: 45px; bottom: 20%; left: 20%; }
+
+/* האסטרואיד המרכזי עם ה-? */
+.main-asteroid-wrapper {
+    position: absolute;
+    bottom: 10%;
+    left: 40%;
+    cursor: pointer;
+}
+
+.main-ast {
+    width: 90px;
+    position: static; /* מנטרל את ה-absolute של המחלקה הכללית */
+}
+
+.question-mark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.simple-image-wrapper {
+    position: relative;
+}
+
+.main-img {
+    max-width: 220px;
+    height: auto;
+}
+
+.coord-bubble.large {
+    font-size: 1.5rem;
+    padding: 15px 25px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }

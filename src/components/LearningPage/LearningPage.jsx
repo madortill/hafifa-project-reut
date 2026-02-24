@@ -71,11 +71,7 @@ const handleBack = () => {
         )}
       </div>
     </div>
-  
-
-  {/* כפתורי ניווט */}
-  <div className="navigation-buttons">
-    <button onClick={handleBack}>חזור</button>
+    <div className="navigation-buttons">
     <img src={nextBtn} alt="Next" onClick={handleNext} />
   </div>
 </div>

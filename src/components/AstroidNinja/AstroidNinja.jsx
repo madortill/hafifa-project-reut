@@ -5,6 +5,8 @@ import asteroidSvg from "../../assets/images/asteroid.svg";
 import play from "../../assets/images/ph_play-bold.svg";
 import alienSvg from "../../assets/images/alien.svg";
 import bombSvg  from "../../assets/images/bomb.svg";
+import heart  from "../../assets/images/heart.svg";
+import Header from "../Header/Header.jsx";
 
 const TARGET_SCORE = 15;
 const ASTEROID_SIZE = 70;
@@ -239,6 +241,8 @@ const spawnAsteroid = useCallback(() => {
   );
 
   return (
+    <>
+    <Header chapterName="משחק פיצוץ אסטרואיד"/>
     <div
       className="ninja-container"
       ref={containerRef}
@@ -261,7 +265,7 @@ const spawnAsteroid = useCallback(() => {
                 <div>
           {[...Array(lives)].map((_, i) => (
             <span key={i} className="heart filled">
-              ❤️
+              <img src={heart}></img>
             </span>
           ))}
         </div>
@@ -329,10 +333,14 @@ const spawnAsteroid = useCallback(() => {
       {gameState === "start" && (
         <div className="ninja-modal-overlay">
           <div className="ninja-modal">
-            <div className="modal-icon">🪐</div>
+            <div className="modal-icon"></div>
             <h2>תתכוננו לפיצוץ אסטרואידים-
-עליכם לפוצץ בעזרת החלקה רק את האסטרואידים, להיזהר מפצצות שיורידו לכם חיים, וירח שיוסיף לכם חיים. 
+עליכם לפוצץ בעזרת החלקה רק את האסטרואידים, להיזהר מפצצות שיורידו לכם חיים, 
 החייזר  יופיע לכם שאלה- ועליכם לענות לעליה נכון כדי להמשיך במשחק. </h2>
+            <img className="modal-icon"  src={asteroidSvg}></img>
+            <img className="modal-icon"  src={alienSvg}></img>
+            <img className="modal-icon"  src={bombSvg}></img>
+            <br></br>
             <img className="play-btn" onClick={startGame} src={play}></img>
           </div>
         </div>
@@ -341,7 +349,7 @@ const spawnAsteroid = useCallback(() => {
       {gameState === "gameOver" && (
         <div className="ninja-modal-overlay">
           <div className="ninja-modal">
-            <div className="modal-icon">💀</div>
+            <div className="modal-icon"></div>
             <h2>נראה שנגמרו לך החיים תזכרו שתרגול מוביל לשלמות!</h2>
             <img src={asteroidSvg} alt="astroid" className="side-astroid" id="astroid1"></img>
             <img src={asteroidSvg} alt="astroid" className="side-astroid" id="astroid2"></img>
@@ -355,7 +363,7 @@ const spawnAsteroid = useCallback(() => {
       {gameState === "won" && (
         <div className="ninja-modal-overlay">
           <div className="ninja-modal">
-            <div className="modal-icon">🏆</div>
+            <div className="modal-icon"></div>
             <img src={asteroidSvg} alt="astroid" className="side-astroid" id="astroid3"></img>
             <img src={asteroidSvg} alt="astroid" className="side-astroid" id="astroid4"></img>
             <h2>כל הכבוד פוצצת את כל האסטרואידים ונהפכת לאסטרונאוט לתפארת! </h2>
@@ -413,6 +421,8 @@ const spawnAsteroid = useCallback(() => {
   </div>
 )}
     </div>
+        </>
+
   );
 };
 

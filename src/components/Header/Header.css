@@ -3,11 +3,12 @@
 .header-container {
   position: relative;
   width: 100%;
-  height: 200px; /* גובה קבוע מתאים לקטע ה-SVG */
-  top:10%;
+  height: 180px; /* גובה קבוע מתאים לקטע ה-SVG */
+  top:12%;
   margin-top: 0;
   overflow: visible;
   background: transparent; 
+  z-index: 2;
 }
 
 .curve-svg {
@@ -52,7 +53,7 @@
 .header-container {
   position: relative;
   width: 100%;
-  height: 180px;
+  height: 160px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -61,29 +62,19 @@
 
 
 
-.header-container {
-  position: absolute; 
-  top: 0;             
-  left: 0;
-  width: 100%;
-  height: 180px;  
-  overflow: visible;
-  background: transparent;
-}
-
 
 /* קו מעוגל */
 .curve-svg {
    position: absolute;
-  left: -100px;
+  left: -60px;
   width: 100%;
   height: 100%;
   display: block;
 }
 
 #curve-path {
-    position: absolute;
-  left: -100px;
+  position: absolute;
+  left: -80px;
   stroke: #F2F2F4;
   stroke-width: 6;
   stroke-linecap: round;
@@ -99,15 +90,13 @@
   }
 }
 
-/* טקסט מעוגל */
 .curved-text {
   fill: #ffffff;
-  font-size: 55px; /* גודל יציב */
+  font-size: 80px; /* גודל יציב */
   font-weight: bold;
   letter-spacing: 0.2em;
 }
 
-/* אסטרונאוט רספונסיבי עם ריחוף */
 #astronaut-svg {
   position: absolute;
   right: 5%;
@@ -128,30 +117,27 @@
     transform: translateY(-3px);
   }
 }
-/* מאפס ריווחים של הדפדפן */
 body {
   margin: 0;
   padding: 0;
 }
 
-/* ה־Header עצמו */
 .header-container {
   position: absolute;
   width: 100%;
-  height: 220px;
+  height: 200px;
+  top: 50px;
   display: flex;
-  align-items: flex-start; /* דוחף למעלה */
+  align-items: flex-start; 
   justify-content: center;
   overflow: visible;
 }
 
-/* ה־SVG הראשי */
 .curve-svg {
   width: 100%;
   height: 100%;
 }
 
-/* הקו */
 #curve-path {
   stroke: #F2F2F4;
   stroke-width: 5;
@@ -172,7 +158,7 @@ body {
 /* הטקסט */
 .curved-text {
   fill: white;
-  font-size: 42px;
+  font-size: 10rem;
   font-weight: bold;
   letter-spacing: 4px;
 }
@@ -185,4 +171,13 @@ body {
   width: 110px;
   height: auto;
   fill: white;
+}
+
+.progress-image {
+    position: absolute;
+    top: -14%;
+    right: 5%;
+    height: 38%;
+    width: auto;
+    object-fit: contain;
 }
