@@ -168,6 +168,20 @@ export default function MemoryGame() {
           </div>
         </div>
       )}
+            {/* Overlays */}
+            {gameOver && (
+              <div className="ninja-modal-overlay">
+                <div className="ninja-modal">
+                  <h2>!כל הכבוד </h2>
+                  <p>עכשיו אתם זוכרים את ההבדל בין סוגי האסטרואידים</p>
+                  <img className="modal-icon"  src={astronautImg}></img>
+                  <br></br>
+                <button onClick={shuffleCards}>שחק שוב</button>
+              <button onClick={() => navigate("/cordination")}>
+                המשך בלומדה</button>    
+                </div>
+              </div>
+            )}
     </div>
   );
 }

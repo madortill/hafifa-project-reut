@@ -5,6 +5,7 @@ import Header from "../Header/Header.jsx"
 import alien from "../../assets/images/alien.svg"
 import astronout from "../../assets/images/astronaut.svg"
 import tillLogo from "../../assets/images/logoTill.png";
+import NavBar from "../../assets/images/navBar.svg";
 
 
 const EndPage=()=>{
@@ -17,7 +18,6 @@ return(
    <div className="end-page-container">
             
             <div className="end-page">
-            {/* לוגו מדור טיל ואסטרונאוט בחלק העליון */}
             <Header chapterName="סוף לומדה" />
             <div className="top-branding">
             </div>
@@ -28,17 +28,10 @@ return(
                 <div className="summary-section">
                     <p className="summary-title">אלה כל הנושאים שעברנו עליהם:</p>
                     <div className="divider"></div>
+                    <img src={NavBar}></img>
                 </div>
 
-                <div className="path-map">
-                    <img src={navBar} className="path-svg" alt="navigation path" />
-                    {/* תוויות על המסלול */}
-                    <span className="step s1">משחק</span>
-                    <span className="step s2">איך מפוצצים אסטרואיד?</span>
-                    <span className="step s3">סוגי אסטרואידים</span>
-                    <span className="step s4">פיצוץ אסטרואיד</span>
-                    <span className="step s5">מהו אסטרואיד?</span>
-                </div>
+              
 
                 <button className="back-to-start" onClick={() => navigate("/start")}>
                     לחזור לתחילת הלומדה
@@ -46,7 +39,9 @@ return(
 
                 <div className="bottom-alien">
                     <div className="speech-box">
-                        עכשיו אתם מוכשרים להיות אסטרונאוטים
+                                                <div className="coord-bubble">                        עכשיו אתם מוכשרים להיות אסטרונאוטים
+</div>
+
                     </div>
                     <img src={alien} className="alien-footer-img" alt="alien" />
                 </div>

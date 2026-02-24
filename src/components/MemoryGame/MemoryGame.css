@@ -1,134 +1,3 @@
-.memory-screen {
-  min-height: 100dvh;
-  background: url("../assets/space-bg.jpg") center/cover no-repeat;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
-  text-align: center;
-  direction: rtl;
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 10px;
-}
-
-.astronaut {
-  width: 60px;
-}
-
-.instructions {
-  color: white;
-  margin: 15px 0 25px;
-  font-size: 16px;
-}
-
-.board {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  gap: 18px;
-  width: 100%;
-  max-width: 380px;
-}
-
-.card {
-  perspective: 1000px;
-  width: 100%;
-  aspect-ratio: 1/1;
-}
-
-.card-inner {
-  width: 100%;
-  height: 100%;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  position: relative;
-}
-
-.card.flipped .card-inner {
-  transform: rotateY(180deg);
-}
-
-.card-front,
-.card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  backface-visibility: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #d8c2a4;
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
-  padding: 10px;
-}
-
-.card-front img {
-  width: 65%;
-}
-
-.card-back {
-  transform: rotateY(180deg);
-  font-weight: bold;
-  font-size: 15px;
-}
-
-.card-back img {
-  width: 65%;
-}
-
-/* 💥 אנימציית התפוצצות */
-.card.explode {
-  animation: explode 0.6s forwards;
-}
-
-@keyframes explode {
-  0% { transform: scale(1); opacity: 1; }
-  40% { transform: scale(1.3); }
-  100% { transform: scale(0); opacity: 0; }
-}
-
-/* 🎉 פופאפ */
-.popup {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.75);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.popup-content {
-  background: #1c1c2e;
-  padding: 30px;
-  border-radius: 22px;
-  color: white;
-  width: 85%;
-  max-width: 320px;
-}
-
-.popup-buttons {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.popup-buttons button {
-  padding: 12px;
-  border-radius: 14px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-
 
 
 
@@ -167,6 +36,16 @@
   gap: 18px;
   width: 100%;
   max-width: 380px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  /* ריווח דינמי - קטן במסכים קטנים */
+  gap: clamp(10px, 3vh, 20px); 
+  width: 100%;
+  /* מגביל את גודל הלוח כדי שלא יימרח על כל המסך */
+  max-width: clamp(200px, 70vw, 300px); 
+  margin: auto; /* ממקם את הלוח בדיוק באמצע המרחב הפנוי */
+
 }
 
 .card {
@@ -251,3 +130,5 @@
   gap: 12px;
   margin-top: 20px;
 }
+
+

@@ -37,12 +37,12 @@ height: 1rem;
 
 /* תוכן מרכזי */
 .main-content {
+    margin-top: 20%;
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
-    max-width: 600px; /* מגביל רוחב בטאבלטים/מחשב כדי שלא יתפרס מדי */
     padding: 0 10px;
     box-sizing: border-box;
 }
@@ -106,13 +106,23 @@ height: 1rem;
     border: none;
     padding: 12px 10%; /* פדינג באחוזים לרוחב */
     min-width: 200px;
-    border-radius: 20px;
+    border-radius: 40px;
     font-size: clamp(1rem, 5vw, 1.2rem);
     font-weight: 600;
     box-shadow: 0 4px 0px #5a5a6a;
     cursor: pointer;
     margin: 20px 0;
     transition: transform 0.1s;
+    /* Frame 9 */
+
+box-sizing: border-box;
+
+
+background: rgba(180, 176, 195, 0.6);
+border: 1px solid #000000;
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+border-radius: 20px;
+
 }
 
 .back-to-start:active {

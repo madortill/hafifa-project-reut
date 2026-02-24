@@ -6,9 +6,11 @@ import tillLogo from "../../assets/images/logoTill.png";
 import brokenEarth from "../../assets/images/brokenEarth.svg";
 import lavian from "../../assets/images/lavian.svg";
 import cordinationImg from "../../assets/images/cordination.svg";
+import coorImg from "../../assets/images/coorImg.svg";
 import nextBtn from "../../assets/images/next.svg";
 import asteroidImg from "../../assets/images/asteroid.svg";
 import Header from "../Header/Header";
+import { useNavigate } from "react-router-dom";
 
 const CordinationPage = () => {
     const [count, setCount] = useState(0);
@@ -30,17 +32,20 @@ const CordinationPage = () => {
         },
         {
             title: "מה זה קואורדינטה?",
-            text: "קואורדינטה- הן קבוצת מספרים המציינת את מיקומו של גוף. מדובר בעצם במערכת צירים.",
-            img: cordinationImg,
+            text: "קואורדינטה- הן קבוצת מספרים המציינת את מיקומו של גוף. מדובר בעצם במערכת צירים.לדוגמא (2,2)",
+            img: coorImg,
             showLearnText: false,
             type: "regular"
         }
     ];
-
+    const navigate=useNavigate();
     const handleNext = (e) => {
-        if (e) e.stopPropagation(); // עוצר את הלחיצה מפעפוע לדיבים חוסמים
+        if (e) e.stopPropagation(); 
         if (count < info.length - 1) {
             setCount(prev => prev + 1);
+        }
+        else {
+            navigate("/AstroidNinja");
         }
     };
 
@@ -96,12 +101,18 @@ const CordinationPage = () => {
             <footer className="footer-nav">
                 {currentPage.showLearnText && <h2 className="learn-text">בואו נלמד</h2>}
                 {currentPage.type !== "asteroids" && (
-                    <img 
+                  <>  <img 
                         src={nextBtn} 
                         className="next-arrow-icon" 
                         onClick={handleNext}
-                        style={{ cursor: 'pointer', zIndex: 2, position: 'relative' }} 
-                    />
+                        />
+                    <div className="bounce-arrow">
+        <svg onClick={handleNext} className="arrow-svg next-arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        style={{ cursor: 'pointer', zIndex: 2, position: 'relative' }} >
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
+        </svg>
+      </div> 
+      </>
                 )}
             </footer>
         </div>
