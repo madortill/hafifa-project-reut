@@ -97,16 +97,17 @@
   letter-spacing: 0.2em;
 }
 
-#astronaut-svg {
+#astronaut-svg-header {
   position: absolute;
   right: 5%;
   top: 25%;
   width: 22%;
-  height: auto;
+  height: 30%;
   fill: #ffffff;
   pointer-events: none;
   user-select: none;
   animation: float 3s ease-in-out infinite alternate;
+  z-index: 100;
 }
 
 @keyframes float {

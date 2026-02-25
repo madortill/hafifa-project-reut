@@ -63,12 +63,12 @@ body {
   width: 10%;
   cursor: pointer;
   z-index: 2;
-  opacity: 0.9;
+  opacity: 0.7;
 }
 
 #astroide1 {
   top: 40vh;
-  left: -15px;
+  left: -19px;
 }
 
 #astroide2 {
@@ -155,14 +155,14 @@ body {
     flex-direction: column;
     justify-content: center; /* ממרכז את הקומפוננטה הפנימית אנכית */
     align-items: center;
-    
+    margin-top: 30%;
+    margin-bottom: 0;
     /* מניעת גלילה פנימית וקיבוע הגודל */
-    max-height: 100%; 
-    max-width: 80%;
+    max-height: 70%; 
+    max-width: 90%;
     overflow: hidden; 
 }
 
-/* אם הקרוסלה או המשחק גדולים מדי, נגביל אותם */
 .page-content > * {
     max-height: 99%; /* מבטיח שהקומפוננטה הפנימית לא תתפוס 100% ותשאיר מקום לחץ */
     max-width: 100%;

@@ -7,7 +7,7 @@ import alienSvg from "../../assets/images/alien.svg";
 import bombSvg  from "../../assets/images/bomb.svg";
 import heart  from "../../assets/images/heart.svg";
 import Header from "../Header/Header.jsx";
-
+import logoTill from "../../assets/images/logoTill.png"
 const TARGET_SCORE = 15;
 const ASTEROID_SIZE = 70;
 
@@ -91,8 +91,8 @@ const spawnAsteroid = useCallback(() => {
       type,
       x,
       y: -ASTEROID_SIZE,
-      speedY: 3 + Math.random() * 2,
-      speedX: (Math.random() - 0.5) * 3,
+      speedY: 2.5 + Math.random() * 1.5,
+      speedX: (Math.random() - 0.5) * 2.2,
       rotate: Math.random() * 360,
     },
   ]);
@@ -113,7 +113,7 @@ const spawnAsteroid = useCallback(() => {
           const newY = a.y + a.speedY;
 
           if (newY > height) {
-            missed++;
+            missed=1;
             return null;
           }
 
@@ -242,6 +242,7 @@ const spawnAsteroid = useCallback(() => {
 
   return (
     <>
+    <img src={logoTill} className="till-logo" alt="logo" />
     <Header chapterName="משחק פיצוץ אסטרואיד"/>
     <div
       className="ninja-container"

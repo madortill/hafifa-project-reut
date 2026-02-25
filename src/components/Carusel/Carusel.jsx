@@ -44,16 +44,25 @@ const imgDot=[dotIcon,dotTeen,dotDevil]
     <Instruction/>
   };
 
-  useEffect(() => {
+useEffect(() => {
     const isLastSlide = currentIndex === slidesData.length - 1;
     
-    if (isLastSlide) {
-      setArrowVisible(true);
-    } else {
-      setArrowVisible(false);
+    // בודקים שהפונקציה קיימת לפני שמפעילים אותה כדי למנוע קריסה
+    if (typeof onLastSlideChange === 'function') {
+      if (isLastSlide) {
+        onLastSlideChange(true);
+      } else {
+        onLastSlideChange(false);
+      }
     }
-    return () => setArrowVisible(true);
-  }, [currentIndex, setArrowVisible]);
+    // ניקוי: כשהקרוסלה נסגרת, מחזירים את החץ למצב גלוי
+    return () => {
+      if (typeof onLastSlideChange === 'function') onLastSlideChange(true);
+    };
+  }, [currentIndex, onLastSlideChange]);
+
+
+
 
   const prevSlide = () => {
     if (currentIndex > 0) setCurrentIndex(currentIndex - 1);

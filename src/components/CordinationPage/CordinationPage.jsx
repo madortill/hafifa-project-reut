@@ -14,11 +14,11 @@ import { useNavigate } from "react-router-dom";
 
 const CordinationPage = () => {
     const [count, setCount] = useState(0);
-
+    const secondryTitle=["איפה זה פוגש אותנו?","איך זה קורה?","הגדרה"];
     const info = [
         {
             title: "איך נפוצץ אסטרואיד?",
-            text: "אחרי שהכרתם את שלל סוגי האסטרואידים ותרגלתם, הגיע הזמן ללמוד מה התפקיד שלכם כדי שנוכל להציל את כדור הארץ",
+            text: "אחרי שהכרתם את שלל סוגי האסטרואידים ותרגלתם, הגיע הזמן ללמוד מה התפקיד שלכם כדי שנוכל להציל את כדור הארץ!",
             img: brokenEarth,
             showLearnText: true,
             type: "regular"
@@ -56,8 +56,8 @@ const CordinationPage = () => {
             <header className="page-header">
                 <Header chapterName={currentPage.title}/>
                 <img src={tillLogo} alt="Logo" className="till-logo" />
+                    <h3 className="curved-title-text">{secondryTitle[count]}</h3>
                 <div className="title-area">
-                    <h1 className="curved-title-text">{currentPage.title}</h1>
                 </div>
             </header>
 
@@ -101,11 +101,7 @@ const CordinationPage = () => {
             <footer className="footer-nav">
                 {currentPage.showLearnText && <h2 className="learn-text">בואו נלמד</h2>}
                 {currentPage.type !== "asteroids" && (
-                  <>  <img 
-                        src={nextBtn} 
-                        className="next-arrow-icon" 
-                        onClick={handleNext}
-                        />
+                  <>
                     <div className="bounce-arrow">
         <svg onClick={handleNext} className="arrow-svg next-arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                         style={{ cursor: 'pointer', zIndex: 2, position: 'relative' }} >

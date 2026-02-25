@@ -19,16 +19,16 @@ const LearningPage = () => {
 const navigate = useNavigate();
 const learningData = learningDataJson?.pages || [];
 const [currentPage, setCurrentPage] = useState(0);
-const imgLoc=[whatIsAstroid,astroidevil,null]
+const imgLoc=[whatIsAstroid,null,null]
 const pageData = learningData[currentPage];
 
 
 if (!pageData) return null;
 
-const [showNextArrow, setShowNextArrow] = useState(true);
+const [showNextArrow, setShowNextArrow] = useState(false);
   
   // State 2: ספציפי לקרוסלה/משחקים
-  const [isNextArrowVisible, setIsNextArrowVisible] = useState(true);
+  const [isNextArrowVisible, setIsNextArrowVisible] = useState(false);
 
   // בכל פעם שעוברים עמוד ב-JSON, מאפסים את שני החצים שיופיעו כברירת מחדל
   useEffect(() => {
@@ -73,7 +73,21 @@ const handleBack = () => {
         {pageData.pageType === "game" && <MemoryGame setArrowVisible={setIsNextArrowVisible} />}
         {pageData.pageType === "instruction" && <Instruction />}
         {pageData.pageType === "cordination" && <cordination />}
+        {pageData.id === 1 && (
+          <>
+            {pageData.subTitle && <h2>{pageData.subTitle}</h2>}
+            <p>{pageData.content1}</p>
+             <img 
+          src={astroidevil} 
+          className={`as-img ${currentPage === 0 ? 'bigger' : ''}`} 
+          alt=""
+          onClick={handleNext}
+        />   
+            <p>{pageData.content2}</p>
+          </>
+        )}
         {pageData.pageType !== "carusel" &&
+        pageData.id !== 1 &&
          pageData.pageType !== "game" &&
          pageData.pageType !== "AstroidGame" && (
           <>
@@ -81,10 +95,10 @@ const handleBack = () => {
             <p>{pageData.content}</p>
           </>
         )}
-        {imgLoc[currentPage]!==null && <img 
+        {imgLoc[currentPage] !== null && <img 
           src={imgLoc[currentPage]} 
           className={`as-img ${currentPage === 0 ? 'bigger' : ''}`} 
-          alt="asteroid"
+          alt=""
           onClick={handleNext}
         /> }   
         </div>

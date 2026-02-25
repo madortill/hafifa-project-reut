@@ -45,10 +45,6 @@ const Instruction = () => {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
         </svg>
       </div> */}
-
-      {/* <div className="alien-container">
-        <img src={alien} alt="Alien" className="alien-img" />
-      </div> */}
     </div>
     </>
   );

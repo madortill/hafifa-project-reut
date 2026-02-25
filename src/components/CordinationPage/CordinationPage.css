@@ -51,7 +51,7 @@
 }
 
 .text-bubble {
-    background: rgba(30, 30, 50, 0.85);
+    background: rgba(40, 40, 40, 0.75);
     border: 1px solid rgba(255, 255, 255, 0.15);
     padding: 20px 24px;
     border-radius: 18px;
@@ -272,4 +272,137 @@
   100% {
     transform: scale(1.2);
   }
+}
+
+
+
+/* ===== Layout ===== */
+
+.page-container {
+    /* שימוש ב-dvh כדי למנוע בעיות בדפדפנים בנייד */
+    height: 100dvh; 
+    width: 100%;
+    max-width: 500px; /* הגדלתי מעט מ-400 כדי שיהיה אוויר */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    background-color: #0b0d17;
+    overflow: hidden; /* מונע גלילה - הכל חייב להיכנס למסך */
+    color: white;
+    direction: rtl;
+}
+
+/* ===== Header ===== */
+
+.page-header {
+    flex-shrink: 0; /* מונע מההדר להתכווץ */
+    width: 100%;
+    height: auto;
+    min-height: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
+}
+
+.till-logo {
+    position: absolute;
+    top: 10px;
+    left: 10px; 
+    width: 70px; /* גודל קבוע וטוב לנייד */
+}
+
+.curved-title-text {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 140px;
+    padding: 0 10px;
+}
+
+/* ===== Content Section ===== */
+
+.content-section {
+    flex: 1; /* לוקח את כל המקום הפנוי */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly; /* מחלק רווחים שווה בשווה */
+    width: 100%;
+    min-height: 0; /* חשוב ל-flexbox כדי לא לחרוג */
+}
+
+.text-bubble {
+    width: 85%;
+    background: rgba(40, 40, 40, 0.75);
+    backdrop-filter: blur(10px);
+    padding: 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* מכולת התמונה - הגבלה כדי שלא תדחף את הפוטר */
+.image-container {
+    flex: 1;
+    width: 100%;
+    max-height: 35vh; /* הגבלה ל-35% מגובה המסך */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.main-img {
+    max-height: 100%;
+    max-width: 70%;
+    object-fit: contain;
+}
+
+/* ===== Footer (כאן התיקון לחץ) ===== */
+
+.footer-nav {
+    flex-shrink: 0; /* מבטיח שהפוטר לא ייעלם */
+    width: 100%;
+    padding-bottom: 20px; /* רווח מהקצה התחתון */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.learn-text {
+    font-size: 1.2rem;
+    margin: 0;
+    font-weight: bold;
+}
+
+.bounce-arrow {
+    cursor: pointer;
+    animation: bounce 2s infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow-svg {
+    width: 45px;
+    height: 45px;
+    color: white;
+}
+
+/* אנימציה */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+    40% { transform: translateY(-8px); }
+    60% { transform: translateY(-4px); }
+}
+
+/* התאמה למסכים קטנים מאוד */
+@media (max-height: 650px) {
+    .curved-title-text { font-size: 1.4rem; margin-top: 50px; }
+    .page-header { min-height: 100px; }
+    .image-container { max-height: 25vh; }
 }

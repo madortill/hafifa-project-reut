@@ -54,7 +54,9 @@ const cardsData = [
   }
 ];
 
-const MemoryGame=()=> {
+const MemoryGame=({setArrowVisible})=> {
+          setArrowVisible(false);
+
   const navigate = useNavigate();
   const [cards, setCards] = useState([]);
   const [flippedIds, setFlippedIds] = useState([]);
@@ -64,6 +66,7 @@ const MemoryGame=()=> {
   useEffect(() => {
     shuffleCards();
   }, []);
+
 
   const shuffleCards = () => {
     const shuffled = [...cardsData].sort(() => Math.random() - 0.5);
@@ -152,36 +155,33 @@ const MemoryGame=()=> {
           );
         })}
       </div>
+{gameOver && (
+  <div className="memory-popup-overlay">
+    <div className="memory-popup">
+      <h2 className="memory-title">כל הכבוד!</h2>
 
-      {gameOver && (
-        <div className="popup">
-          <div className="popup-content">
-            <h2>כל הכבוד! 🎉</h2>
-            <p>סיימת את המשחק בהצלחה</p>
+      <p className="memory-subtitle">
+        עכשיו אתם זוכרים את ההבדל בין סוגי האסטרואידים
+      </p>
 
-            <div className="popup-buttons">
-              <button onClick={shuffleCards}>שחק שוב</button>
-              <button onClick={() => navigate("/summary")}>
-                המשך בלומדה
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-            {/* Overlays */}
-            {gameOver && (
-              <div className="ninja-modal-overlay">
-                <div className="ninja-modal">
-                  <h2>!כל הכבוד </h2>
-                  <p>עכשיו אתם זוכרים את ההבדל בין סוגי האסטרואידים</p>
-                  <img className="modal-icon"  src={astronautImg}></img>
-                  <br></br>
-                <button onClick={shuffleCards}>שחק שוב</button>
-              <button onClick={() => navigate("/cordination")}>
-                המשך בלומדה</button>    
-                </div>
-              </div>
-            )}
+      <div className="memory-buttons">
+        <button
+          className="memory-btn"
+          onClick={shuffleCards}
+        >
+          שחק שוב
+        </button>
+
+        <button
+          className="memory-btn"
+          onClick={() => navigate("/cordination")}
+        >
+          המשך בלומדה
+        </button>
+      </div>
+    </div>
+  </div>
+)}
     </div>
   );
 }
