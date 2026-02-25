@@ -120,7 +120,7 @@ body {
     40% {transform: translateY(-10px);}
     60% {transform: translateY(-5px);}
 }
-.next-btn{
+.next-btn {
     animation: bounce 2s 0.5s infinite;
 }
 
@@ -177,8 +177,7 @@ body {
 }
 
 .arrow-svg {
-    width: 40px;
-    height: 40px;
+    width: 100%;
 }
 .hide-arrow {
   opacity: 0; 

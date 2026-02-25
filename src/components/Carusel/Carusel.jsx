@@ -1,17 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Carusel.css';
 
 import arrowRight from '../../assets/images/arrow-rigth.svg';
 import arrowLeft from '../../assets/images/arrow-left.svg';
 import babyImg from '../../assets/images/babyAs.svg';
 import teenImg from '../../assets/images/middleAs.svg';
-import adultImg from '../../assets/images/grownUpAs.svg';
+import dotTeen from '../../assets/images/teen.svg';
+import dotDevil from '../../assets/images/devilDot.svg';
+import adultImg from '../../assets/images/oldAs.svg';
 import dotIcon from '../../assets/images/babydot.svg';
 import doubleArrowDown from '../../assets/images/next.svg';
 import Instruction from "../Instruction/Instruction.jsx";
-const Carusel = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const Carusel = ({ onLastSlideChange }) => { 
 
+const [currentIndex, setCurrentIndex] = useState(0);
+const imgDot=[dotIcon,dotTeen,dotDevil]
   const slidesData = [
     {
       id: 1,
@@ -40,6 +43,17 @@ const Carusel = () => {
   const handelNext = () => {
     <Instruction/>
   };
+
+  useEffect(() => {
+    const isLastSlide = currentIndex === slidesData.length - 1;
+    
+    if (isLastSlide) {
+      setArrowVisible(true);
+    } else {
+      setArrowVisible(false);
+    }
+    return () => setArrowVisible(true);
+  }, [currentIndex, setArrowVisible]);
 
   const prevSlide = () => {
     if (currentIndex > 0) setCurrentIndex(currentIndex - 1);
@@ -81,17 +95,14 @@ const Carusel = () => {
           {slidesData.map((_, i) => (
             <div key={i} className="dot-wrapper">
               {i === currentIndex ? 
-                <img src={dotIcon} className="active-dot-img" alt="active" /> : 
+                <img src={imgDot[currentIndex]} className="active-dot-img" alt="active" /> : 
                 <div className="inactive-dot" />
               }
             </div>
           ))}
         </div>
 
-        {/* חץ סיום מופיע רק בסוף */}
-        <div className={`bottom-arrow ${currentIndex === slidesData.length - 1 ? 'visible' : ''}`}>
-          <img src={doubleArrowDown} alt="continue" onClick={handelNext}/>
-        </div>
+        
       </footer>
       </main>
 

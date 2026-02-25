@@ -1,166 +1,143 @@
-/* הגדרות כלליות משופרות */
-.end-page {
-    background-color: #333131;
-    background-image: radial-gradient(circle, #444 1px, transparent 1px);
-    background-size: 30px 30px;
-    min-height: 100vh; /* שינוי ל-min-height כדי למנוע חיתוך בתוכן ארוך */
+.end-page-wrapper {
+    height: 100vh;
     width: 100vw;
-    color: white;
-    direction: rtl;
+    overflow: hidden; /* חובה למניעת גלילה */
+    background-color: #1a1a1a;
+    background-image: radial-gradient(circle, #333 1px, transparent 1px);
+    background-size: 30px 30px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    overflow-x: hidden;
-    font-family: 'Assistant', sans-serif;
-    padding-bottom: 20px;
-}
-
-/* התאמת המיתוג העליון */
-.top-branding {
-    width: 100%;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    position: relative;
     box-sizing: border-box;
+    align-items: center; 
 }
 
-.till-logo-end { 
-width: 2rem;
-height: 1rem;
+.end-page-wrapper .progress-image {
+    display: none !important;
 }
 
-.top-astronaut { 
-    width: clamp(60px, 18vw, 85px);
-    transform: rotate(-10deg); 
+/* לוגו מדור טיל */
+.till-logo-end {
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    width: 15%;
+    z-index: 2;
 }
 
-/* תוכן מרכזי */
-.main-content {
-    margin-top: 20%;
+/* אסטרואידים בצדדים */
+.decor-asteroid {
+    position: absolute;
+    width: 50px;
+    opacity: 0.6;
+    z-index: 0;
+}
+.ast-left { left: -10px; top: 40%; transform: rotate(15deg); }
+.ast-right { right: -10px; top: 60%; transform: rotate(-20deg); }
+
+.end-main-container {
+    width: 100%;
+    max-width: 500px; 
     flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    padding: 0 10px;
+    padding-top: 140px; 
     box-sizing: border-box;
-}
-
-.title-text {
-    font-size: clamp(1.5rem, 8vw, 2.2rem); /* טקסט שמתכווץ במסכים קטנים */
-    font-weight: 700;
-    margin-bottom: 15px;
-    line-height: 1.1;
-    text-align: center;
-}
-
-.summary-title {
-    font-size: clamp(1rem, 5vw, 1.4rem);
-    margin-bottom: 5px;
-    text-align: center;
-}
-
-.divider {
-    width: 60%;
-    max-width: 250px;
-    height: 2px;
-    background-color: white;
-    margin-bottom: 25px;
-}
-
-/* המסלול - החלק הכי רגיש */
-.path-map {
-    position: relative;
-    width: 100%;
-    max-width: 450px; /* מניעת מתיחה של ה-SVG */
-    margin: 0 auto 30px auto;
-}
-
-.path-svg { 
-    width: 100%; 
-    height: auto;
-    display: block;
-}
-
-/* תוויות השלבים - שימוש ב-EM כדי שיקטנו יחד עם גודל הגופן הכללי */
-.step {
-    position: absolute;
-    font-size: clamp(0.65rem, 3vw, 0.85rem);
-    font-weight: 600;
-    max-width: 70px;
-    line-height: 1.1;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
-}
-
-/* מיקומים באחוזים כדי לשמור על דיוק על גבי ה-SVG */
-.s1 { top: 32%; left: 2%; }
-.s2 { top: 62%; left: 18%; }
-.s3 { top: 78%; left: 48%; }
-.s4 { top: 58%; right: 22%; }
-.s5 { top: 28%; right: 5%; }
-
-.back-to-start {
-    background-color: #7d7d8d;
-    color: white;
-    border: none;
-    padding: 12px 10%; /* פדינג באחוזים לרוחב */
-    min-width: 200px;
-    border-radius: 40px;
-    font-size: clamp(1rem, 5vw, 1.2rem);
-    font-weight: 600;
-    box-shadow: 0 4px 0px #5a5a6a;
-    cursor: pointer;
-    margin: 20px 0;
-    transition: transform 0.1s;
-    /* Frame 9 */
-
-box-sizing: border-box;
-
-
-background: rgba(180, 176, 195, 0.6);
-border: 1px solid #000000;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 20px;
-
-}
-
-.back-to-start:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 0px #5a5a6a;
-}
-
-/* החייזר והבועה */
-.bottom-alien {
-    position: relative; /* עדיף על fixed בתוך מכולה רספונסיבית */
-    align-self: flex-start;
-    margin-top: auto;
-    margin-right: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: fit-content;
-}
-
-.speech-box {
-    background: #555;
-    border: 2px solid #777;
-    padding: 8px 12px;
-    border-radius: 15px;
-    font-size: clamp(0.75rem, 3.5vw, 0.9rem);
-    max-width: 130px;
-    margin-bottom: -5px;
-    z-index: 2;
-}
-
-.alien-footer-img {
-    width: clamp(70px, 20vw, 100px);
     z-index: 1;
 }
 
-/* Media Query למסכים קטנים מאוד (iPhone SE וכדומה) */
-@media (max-width: 350px) {
-    .step { font-size: 0.6rem; }
-    .title-text { font-size: 1.3rem; }
-    .back-to-start { padding: 10px 5%; min-width: 150px; }
+.end-title {
+    font-size: clamp(1.8rem, 6vw, 2.5rem);
+    font-weight: 900;
+    text-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.end-summary-box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.summary-navbar-img {
+    width: 90%;
+    max-width: 350px;
+}
+
+.white-line {
+    width: 200px;
+    height: 2px;
+    background: white;
+    margin-bottom: 15px;
+}
+
+/* כפתור */
+.reset-button {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: 1.5px solid white;
+    padding: 12px 30px;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+    animation: scale 2s alternate infinite;
+}
+@keyframes scale {
+    100%{
+        scale: 1.04;
+    }
+}
+
+.alien-footer-section {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.speech-bubble-tail {
+    background: white;
+    color: black;
+    padding: 8px 12px;
+    border-radius: 15px 15px 15px 0;
+    font-weight: bold;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 5px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    position: relative;
+    bottom: 60%;
+    border: 1px solid #999;
+}
+
+/* השפיץ של הבועה שפונה לחייזר */
+.speech-bubble-tail::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    border-left: 10px solid white;
+    border-bottom: 8px solid transparent;
+}
+
+.alien-graphic {
+    width: 40%;
+    position: relative;
+    left:-30%;
+}
+
+/* תיקונים למסכים קטנים מאוד */
+@media (max-width: 380px) {
+    .end-main-container { padding-top: 135px; }
+    .end-title { font-size: 1.6rem; }
+    .summary-navbar-img { width: 85%; }
 }

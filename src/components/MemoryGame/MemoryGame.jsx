@@ -54,7 +54,7 @@ const cardsData = [
   }
 ];
 
-export default function MemoryGame() {
+const MemoryGame=()=> {
   const navigate = useNavigate();
   const [cards, setCards] = useState([]);
   const [flippedIds, setFlippedIds] = useState([]);
@@ -185,3 +185,4 @@ export default function MemoryGame() {
     </div>
   );
 }
+export default MemoryGame;
