@@ -92,9 +92,9 @@
 
 .curved-text {
   fill: #ffffff;
-  font-size: 80px; /* גודל יציב */
+  font-size: 70px; /* גודל יציב */
   font-weight: bold;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
 }
 
 #astronaut-svg-header {
