@@ -13,6 +13,8 @@
 }
 * {
   pointer-events: auto;
+    font-family: "hebbo";
+
 }
 
 html, body {
