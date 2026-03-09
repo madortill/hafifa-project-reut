@@ -360,7 +360,7 @@ const AstroidNinja = () => {
             <div className="ninja-modal">
               <img src={asteroidSvg} alt="asteroid" className="side-astroid" id="astroide3" />
               <img src={asteroidSvg} alt="asteroid" className="side-astroid" id="astroide4" />
-              <h2>כל הכבוד! 🚀<br />פוצצת את כל האסטרואידים ונהפכת לאסטרונאוט לתפארת!</h2>
+              <h2>כל הכבוד!<br />פוצצת את כל האסטרואידים ונהפכת לאסטרונאוט לתפארת!</h2>
               <button className="play-btn" onClick={() => navigate("/end")}>המשך</button>
             </div>
           </div>

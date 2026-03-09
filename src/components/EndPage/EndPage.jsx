@@ -12,7 +12,6 @@ const EndPage = () => {
 
   return (
     <div className="end-page-wrapper">
-      {/* אלמנטים דקורטיביים קבועים */}
       <img src={tillLogo} className="till-logo-end" alt="logo" />
       <img src={astroide} className="decor-asteroid ast-left" alt="asteroid" />
       <img src={astroide} className="decor-asteroid ast-right" alt="asteroid" />

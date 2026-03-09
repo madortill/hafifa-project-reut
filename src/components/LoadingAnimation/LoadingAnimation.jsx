@@ -1,37 +1,4 @@
-// import React from "react";
-// import { useState } from "react";
-// import "./LoadingAnimation.css";
-// import { DotLottieReact } from '@lottiefiles/dotlottie-react';
-// import { useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
 
-// const LoadingAnimation=()=>{
-//     const navigate = useNavigate();
-
-//      useEffect(() => {
-//     const timer = setTimeout(() => {
-//       navigate("/start");
-//     }, 12000); 
-
-//     return () => clearTimeout(timer);
-//   }, [navigate]);
-
-//   return (
-//     <>
-   
-//     <div id="container-animation">
-//     <DotLottieReact
-//       src="https://lottie.host/e26a54ec-ff2e-4c99-999d-f4b1f6220aa3/fQWJMrONHQ.lottie"
-//     loop
-//     autoplay
-//     backgroundColor="#081131ff" 
-//     id="animation"
-//     />
-// </div>
-//     </>
-//   )
-// }
-// export default LoadingAnimation; 
 import React, { useEffect, useState } from "react";
 import "./LoadingAnimation.css";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
