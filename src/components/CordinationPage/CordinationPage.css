@@ -2,7 +2,8 @@
 
 .page-container {
     height: 100dvh;
-    width: 100vw;
+    width: 100%;
+margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -280,9 +281,9 @@
 
 .page-container {
     /* שימוש ב-dvh כדי למנוע בעיות בדפדפנים בנייד */
-    height: 100dvh; 
+    height: 100%; 
     width: 100%;
-    max-width: 500px; /* הגדלתי מעט מ-400 כדי שיהיה אוויר */
+    max-width: 500px; 
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -311,7 +312,9 @@
     position: absolute;
     top: 10px;
     left: 10px; 
-    width: 70px; /* גודל קבוע וטוב לנייד */
+   width: 10%;
+    max-width: 50px;
+    height: auto;
 }
 
 .curved-title-text {

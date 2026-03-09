@@ -1,80 +1,104 @@
-
-
+/* ===== CONTAINER ===== */
+/* Pushed lower to clear the page header */
 .ninja-container {
   position: absolute;
   width: 90%;
   max-width: 380px;
-  height: calc(100vh - 200px); /* מפנה מקום ל-header */
-  top: 100px;
-  margin: 20px auto 0 auto;
+  /* increased top offset so it sits below the header */
+  height: calc(100vh - 230px);
+  top: 140px;
+  left: 50%;
+  transform: translateX(-50%);
   background: rgba(125, 96, 84, 0.8);
   border-radius: 29px;
   overflow: hidden;
   touch-action: none;
 }
 
-/* HUD */
+/* ===== HUD ===== */
 .ninja-header {
   position: absolute;
   top: 0;
   width: 100%;
-  padding: 20px;
+  padding: 12px 16px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   z-index: 25;
+}
+
+.hearts-row {
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .heart {
   font-size: 1.5rem;
   margin-left: 5px;
+  line-height: 1;
+}
+
+.heart img {
+  width: 26px;
+  height: 26px;
+  display: block;
 }
 
 .heart.filled { color: #ff4d4d; }
-.heart.empty { color: #333; }
+.heart.empty  { color: #333; }
 
 .score-display {
   color: #fff;
   font-size: 1.2rem;
+  direction: rtl;
 }
 
-/* Progress */
+/* ===== PROGRESS BAR ===== */
+/* Sits on the left, fills upward as score increases */
 .progress-sidebar {
   position: absolute;
-  left: 15px;
-  bottom: 50px;
-  width: 30px;
-  height: 200px;
+  left: 10px;
+  bottom: 40px;
+  width: 26px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 4px;
   z-index: 30;
+  pointer-events: none;
 }
 
 .progress-bar-bg {
   width: 12px;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.1);
+  height: 180px;
+  background: rgba(255, 255, 255, 0.15);
   border-radius: 10px;
   overflow: hidden;
+  /* flex-end so child grows from the bottom upward */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .progress-fill {
-  position: absolute;
-  bottom: 0;
   width: 100%;
   background: #4caf50;
-  box-shadow: 0 0 10px #4caf50;
-  transition: height 0.3s ease;
+  box-shadow: 0 0 8px #4caf50;
+  border-radius: 10px;
+  /* height driven by inline style — transition makes it smooth */
+  transition: height 0.35s ease;
+  min-height: 0;
 }
 
 .progress-text {
   color: #4caf50;
-  font-size: 12px;
-  margin-top: 5px;
+  font-size: 11px;
   font-weight: bold;
+  text-align: center;
 }
 
-/* Asteroids */
+/* ===== ASTEROIDS ===== */
 .ninja-asteroid-obj {
   position: absolute;
   pointer-events: none;
@@ -87,11 +111,14 @@
   filter: drop-shadow(0 0 5px rgba(255,255,255,0.2));
 }
 
-/* Slash */
+/* ===== SLASH ===== */
 .slash-svg {
   position: absolute;
   inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
+  z-index: 10;
 }
 
 .slash-svg polyline {
@@ -102,128 +129,25 @@
   stroke-linejoin: round;
 }
 
-.ninja-modal-overlay {
-  position: absolute;
-  inset: 0;
-background: radial-gradient(50% 50% at 50% 50%, rgba(28, 26, 36, 0.42) 0%, #15141A 95.67%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 50;
-  background-color: #7D6054;
-
-  
-}
-
-.ninja-modal {
-  background: #222;
-  padding: 40px;
-  border-radius: 25px;
-  text-align: center;
-  color: white;
-  width: 80%;
-  max-width: 320px;
-  animation: popIn 0.3s ease;
-
-/* Rectangle 6 */
-
-width: 80%;
-height: 80%;
-left: 50%;
-top: 0;
-
-border-radius: 54px;
-
-
-background: radial-gradient(50% 50% at 50% 50%, #1c1a246b 0%, #15141A 95.67%);
-
-}
-
-.play-btn {
-  background: #B4B0C3;
-  color: #000;
-  border: none;
-  padding: 12px 40px;
-  border-radius: 50px;
-  font-weight: bold;
-  font-size: 1.2rem;
-  margin-top: 20px;
-  cursor: pointer;
-}
-
-.modal-icon {
-  font-size: 4rem;
-  margin-bottom: 10px;
-  width: 2rem;
-}
-
-@keyframes popIn {
-  from { transform: scale(0.5); opacity: 0; }
-  to { transform: scale(1); opacity: 1; }
-}
-
+/* ===== EXPLOSIONS ===== */
 .explosion-effect {
   position: absolute;
-  font-size: 3rem;
+  font-size: 2.4rem;
   transform: translate(-50%, -50%);
-  animation: fadeOut 0.5s forwards;
+  pointer-events: none;
+  z-index: 20;
+  animation: fadeOut 0.4s forwards;
 }
 
 @keyframes fadeOut {
   to { opacity: 0; transform: translate(-50%, -50%) scale(2); }
 }
 
-.side-astroid {
-  position: absolute;
-  width: 6vw;        
-  min-width: 30px;   
-  max-width: 60px;   
-  cursor: pointer;
-  z-index: 5;
-}
-
-#astroide1 {
-  top: 40%;
-  left: -2%;
-}
-
-#astroide2 {
-  top: 60%;
-  right: -2%;
-}
-
-.astroid-left {
-  top: 40%;
-  left: -2%;
-}
-
-.astroid-rigth {
-  top: 60%;
-  right: -2%;
-}
-
-#astroide3 {
-  top: 40%;
-  left: -2%;
-}
-
-#astroide4 {
-  top: 60%;
-  right: -2%;
-}
-.correct {
-  background-color: #2ecc71 !important;
-  color: white;
-}
-
-.wrong {
-  background-color: #e74c3c !important;
-  color: white;
-}
+/* ===== MODAL OVERLAY ===== */
 .ninja-modal-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.65);
+  background: rgba(0, 0, 0, 0.65);
   backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
@@ -231,13 +155,136 @@ background: radial-gradient(50% 50% at 50% 50%, #1c1a246b 0%, #15141A 95.67%);
   z-index: 100;
 }
 
+/* ===== MODAL BOX ===== */
+/* No entrance animation — plain as requested */
 .ninja-modal {
+  position: relative;
   background: linear-gradient(145deg, #1b1a24, #111018);
-  padding: 25px;
+  padding: 28px 22px;
   border-radius: 35px;
   text-align: center;
   color: white;
   width: 85%;
   max-width: 320px;
   box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  direction: rtl;
+}
+
+.ninja-modal h2 {
+  font-size: clamp(13px, 3.5vw, 15px);
+  line-height: 1.7;
+  color: #fff;
+  direction: rtl;
+  margin: 0;
+}
+
+/* ===== START MODAL ICONS ===== */
+.modal-icons-row {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 14px;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-icon {
+  width: clamp(32px, 7vw, 48px);
+  height: clamp(32px, 7vw, 48px);
+  object-fit: contain;
+}
+
+/* ===== PLAY BUTTON — image (start screen) ===== */
+.play-btn-img {
+  width: clamp(52px, 12vw, 72px);
+  cursor: pointer;
+  display: block;
+  margin: 4px auto 0;
+}
+
+/* ===== PLAY BUTTON — text (game-over / won) ===== */
+.play-btn {
+  background: #B4B0C3;
+  color: #000;
+  border: none;
+  padding: 10px 36px;
+  border-radius: 50px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 4px;
+}
+
+.play-btn:active {
+  opacity: 0.8;
+}
+
+/* ===== SIDE ASTEROIDS (win / lose modals) ===== */
+.side-astroid {
+  position: absolute;
+  width: clamp(36px, 8vw, 58px);
+  opacity: 0.9;
+}
+
+#astroide1 { top:    -18px; left:  -14px; transform: rotate(-15deg); }
+#astroide2 { bottom: -18px; right: -14px; transform: rotate(20deg);  }
+#astroide3 { top:    -18px; right: -14px; transform: rotate(20deg);  }
+#astroide4 { bottom: -18px; left:  -14px; transform: rotate(-15deg); }
+
+/* ===== ANSWER BUTTONS ===== */
+.answer-btn {
+  width: 100%;
+  padding: 9px 14px;
+  border-radius: 14px;
+  border: 1.5px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.07);
+  color: #fff;
+  font-size: clamp(12px, 3vw, 14px);
+  cursor: pointer;
+  direction: rtl;
+  text-align: right;
+  transition: background 0.15s;
+}
+
+.answer-btn:active {
+  background: rgba(255,255,255,0.18);
+}
+
+.answer-btn.correct {
+  background-color: #2ecc71 !important;
+  border-color: #2ecc71;
+  color: #fff;
+}
+
+.answer-btn.wrong {
+  background-color: #e74c3c !important;
+  border-color: #e74c3c;
+  color: #fff;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 400px) {
+  .ninja-container {
+    width: 95%;
+    top: 120px;
+    height: calc(100vh - 190px);
+    border-radius: 20px;
+  }
+
+  .progress-bar-bg {
+    height: 130px;
+  }
+
+  .heart img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .ninja-modal {
+    padding: 22px 16px;
+    border-radius: 26px;
+  }
 }

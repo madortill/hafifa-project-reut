@@ -97,7 +97,7 @@ body {
   text-align: center;
   color: white;
   background: rgba(40, 40, 40, 0.75);
-  padding: 20px;
+  padding: 15%;
   border-radius: 16px;
   backdrop-filter: blur(6px);
 
@@ -142,8 +142,7 @@ body {
     align-items: center;
     padding: 10px 20px;
     box-sizing: border-box;
-    /* הגבלה קריטית כדי שלא יחרוג מהמסך */
-    max-height: calc(100vh - 60px); /* גובה המסך פחות גובה ההדר */
+    max-height: calc(100vh - 60px); 
   margin-top: 150px;
   }
     

@@ -28,7 +28,7 @@
 /* אסטרואידים בצדדים */
 .decor-asteroid {
     position: absolute;
-    width: 50px;
+    width: 12%;
     opacity: 0.6;
     z-index: 0;
 }
@@ -96,8 +96,8 @@
 
 .alien-footer-section {
     position: absolute;
-    bottom: 10px;
-    left: 15px;
+    bottom: -7%;
+    left: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;

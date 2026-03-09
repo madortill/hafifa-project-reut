@@ -292,7 +292,7 @@
 
 .card-front img,
 .card-back img {
-  width: 85%;
+  width: 70%;
   height: 85%;
   object-fit: contain;
 }
