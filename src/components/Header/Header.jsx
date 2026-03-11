@@ -46,7 +46,7 @@ const currentPage = learningData.pages.find(
 
         <use href="#curve" id="curve-path" />
         <text className="curved-text">
-          <textPath href="#curve" startOffset="50%" textAnchor="middle">
+          <textPath href="#curve" startOffset="50%" textAnchor="middle" side="right" >
             {chapterName}
           </textPath>
         </text>
