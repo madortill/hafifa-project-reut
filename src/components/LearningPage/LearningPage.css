@@ -1,3 +1,6 @@
+:root {
+  --header-height: clamp(90px, 14vh, 120px);
+}
 
 body {
   margin: 0;
@@ -6,192 +9,158 @@ body {
   background: #000;
 }
 
-/* קונטיינר ראשי */
+/* ===== PAGE ===== */
 .LearningPage {
-  position: relative;
+  height: 100vh;
   width: 100%;
   max-width: 480px;
-  min-height: 100vh;
   margin: 0 auto;
+
   display: flex;
   flex-direction: column;
+
   background: radial-gradient(circle at center, #000 0%, #0d0d0d 100%);
   overflow: hidden;
-}
-
-/* לוגו */
-.till-logo {
-  position: absolute;
-  top: 2vh;
-  left: 3vw;
-  width: 12vw;
-  max-width: 50px;
-  height: auto;
-}
-
-
-
-@keyframes move {
-  from { transform: translateY(0); }
-  to { transform: translateY(-100vh); }
-}
-
-.LearningPage {
   position: relative;
-  width: 100%;
-  max-width: 480px;
-  min-height: 100vh;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  background: radial-gradient(circle at center, #000 0%, #0d0d0d 100%);
-  overflow: hidden;
 }
 
-/* לוגו */
+
+/* ===== LOGO ===== */
+
 .till-logo {
   position: absolute;
-  top: 2vh;
-  left: 4vw;
-  width: 40px;
-  z-index: 2;
+  top: 10px;
+  left: 12px;
+  width: 38px;
+  z-index: 3;
 }
 
-/* אסטרואידים */
+/* ===== ASTEROIDS ===== */
+
 .astroide {
   position: absolute;
-  width: 10%;
+  width: 42px;
   cursor: pointer;
-  z-index: 2;
-  opacity: 0.7;
+  z-index: 3;
+  opacity: 0.8;
 }
 
 #astroideLeft {
-  top: 40vh;
-  left: -19px;
+  top: 45%;
+  left: -18px;
 }
 
 #astroide2 {
-  top: 40vh;
-  right: -15px;
+  top: 45%;
+  right: -18px;
 }
 
-@keyframes move {
-  from { transform: translateY(0); }
-  to { transform: translateY(-100vh); }
-}
+/* ===== MAIN CONTENT AREA ===== */
 
-/* תוכן */
-.page-container {
+
+.page-container-learning {
   flex: 1;
+  
+  gap: 2%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+
+  justify-content: flex-start; /* מתחיל למעלה */
   align-items: center;
-  padding: 0 5vw 0;
+
+  padding: 2px;
+  padding-top: clamp(120px, 10vh, 250px);
+
+
   box-sizing: border-box;
-  min-height: 100%;
 }
 
+/* ===== CONTENT BOX ===== */
 
 .page-content {
-  text-align: center;
-  color: white;
-  background: rgba(40, 40, 40, 0.75);
-  border-radius: 16px;
+  padding-top: 20%;
+  margin-top: 20px;
+  width: 90%;
+  max-width: 360px;
+
+  background: rgba(40,40,40,0.75);
   backdrop-filter: blur(6px);
-  font-size: 1rem;
-  width: 100%;
-  max-width: 340px;
-  padding: 20px;
   border-radius: 18px;
+
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 12px;
+
   color: white;
   text-align: center;
 
-  max-height: 85vh;
-  overflow-y: auto;
+  box-sizing: border-box;
 }
 
+/* ===== TEXT ===== */
 
-@keyframes bounce {
-    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-    40% {transform: translateY(-10px);}
-    60% {transform: translateY(-5px);}
-}
-.next-btn {
-    animation: bounce 2s 0.5s infinite;
+.page-content h2 {
+  margin: 0;
+  font-size: 1.3rem;
 }
 
-.LearningPage {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden; /* מונע מהעמוד כולו להיגרר */
-    display: flex;
-    flex-direction: column;
-    background-color: #1a1a1a;
-    position: relative;
+.page-content p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
-.page-container {
-    flex: 1; /* לוקח את כל המקום הפנוי מתחת להדר */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; /* דוחף את התוכן למעלה/מרכז ואת החץ למטה */
-    align-items: center;
-    padding: 10px 20px;
-    box-sizing: border-box;
-    max-height: calc(100vh - 60px); 
-  margin-top: 150px;
-  }
-    
+/* ===== IMAGES ===== */
 
-.page-content {
-    width: 90%;
-    flex: 1; /* מאפשר לתוכן לגדול */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* ממרכז את הקומפוננטה הפנימית אנכית */
-    align-items: center;
-    margin-top: 45%;
-    margin-bottom: 0;
-    /* מניעת גלילה פנימית וקיבוע הגודל */
-    max-height: 70%; 
-    max-width: 90%;
-    max-width: 280px;
-    overflow: hidden; 
-    max-height: 500px;
+.as-img {
+  width: 60%;
+  max-width: 160px;
+  height: auto;
 }
 
-.page-content > * {
-    max-height: 99%; /* מבטיח שהקומפוננטה הפנימית לא תתפוס 100% ותשאיר מקום לחץ */
-    max-width: 100%;
-    object-fit: contain;
-}
+/* ===== ARROW ===== */
 
 .bounce-arrow {
-    flex-shrink: 0; /* מונע מהחץ להתכווץ כשהתוכן גדל */
-    padding: 15px 0;
-    cursor: pointer;
-    z-index: 10;
+  cursor: pointer;
+  flex-shrink: 0;
 }
 
 .arrow-svg {
-    width: 100%;
+  width: 38px;
 }
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes bounce {
+  0%,20%,50%,80%,100% { transform: translateY(0); }
+  40% { transform: translateY(-10px); }
+  60% { transform: translateY(-5px); }
+}
+
+.next-btn {
+  animation: bounce 2s 0.5s infinite;
+}
+
 .hide-arrow {
-  opacity: 0; 
+  opacity: 0;
 }
+
+/* ===== IMAGE PULSE ===== */
+
 .bigger {
   animation: pulse-animation 2s ease-in-out 0.2s infinite alternate;
 }
 
 @keyframes pulse-animation {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.2);
-  }
+  0% { transform: scale(1); }
+  100% { transform: scale(1.2); }
 }
-.as-img {
-  width: 60%;
+.page-content > * {
+  max-width: 100%;
+  box-sizing: border-box;
 }

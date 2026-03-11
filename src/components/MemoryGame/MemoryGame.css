@@ -1,7 +1,7 @@
 /* ===== SCREEN ===== */
 .memory-screen {
   width: 100%;
-  height: 100dvh;
+  height: 100%;
   background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
   display: flex;
   flex-direction: column;
@@ -83,13 +83,12 @@
   pointer-events: none;
   visibility: hidden;
 }
-
-.card-front img,
-.card-back img {
-  width: 70%;
-  height: 85%;
+.card-img {
+  width: 60%;
+  height: 75%;
   object-fit: contain;
 }
+
 
 /* ===== WIN POPUP OVERLAY ===== */
 /* Matches AstroidNinja .ninja-modal-overlay exactly */

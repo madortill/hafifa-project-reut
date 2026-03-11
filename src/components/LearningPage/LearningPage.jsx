@@ -13,6 +13,7 @@ import Carousel from "../Carusel/Carusel.jsx";
 import MemoryGame from "../MemoryGame/MemoryGame.jsx";
 import "./LearningPage.css";
 import Instruction from "../Instruction/Instruction.jsx";
+import Cordination from "../CordinationPage/CordinationPage.jsx";
 
 const LearningPage = () => {
 
@@ -67,12 +68,12 @@ const handleBack = () => {
       <img src={tillLogo} className="till-logo" alt="logo" />
       <img src={astroide} onClick={handleBack} id="astroideLeft" className="astroide" alt="astroide" />
       <img src={astroide} onClick={handleNext} id="astroide2" className="astroide" alt="astroide" />
- <div className="page-container">
+ <div className="page-container-learning">
       <div className="page-content">
         {pageData.pageType === "carusel" && <Carousel onLastSlideChange={setIsNextArrowVisible} />}
         {pageData.pageType === "game" && <MemoryGame setArrowVisible={setIsNextArrowVisible} />}
         {pageData.pageType === "instruction" && <Instruction />}
-        {pageData.pageType === "cordination" && <cordination />}
+        {/* {pageData.pageType === "cordination" && <Cordination />} */}
         {pageData.id === 1 && (
           <>
             {pageData.subTitle && <h2>{pageData.subTitle}</h2>}

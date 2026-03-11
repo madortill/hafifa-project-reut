@@ -127,12 +127,12 @@ const MemoryGame = ({ setArrowVisible }) => {
             >
               <div className="card-inner">
                 <div className="card-front">
-                  <img src={card.front} alt="asteroid" />
+                  <img className="card-img" src={card.front} alt="asteroid" />
                 </div>
                 <div className="card-back">
                   {card.backType === "text"
                     ? <span>{card.backContent}</span>
-                    : <img src={card.backContent} alt="match" />
+                    : <img className="card-img" src={card.backContent} alt="match" />
                   }
                 </div>
               </div>

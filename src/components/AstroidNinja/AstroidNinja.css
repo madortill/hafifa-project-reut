@@ -16,15 +16,28 @@
 }
 
 /* ===== HUD ===== */
+
 .ninja-header {
   position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
   padding: 12px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   z-index: 25;
+  box-sizing: border-box;
+}
+
+.score-display {
+  color: #fff;
+  font-size: 1.2rem;
+  direction: rtl;
+  max-width: 45%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .hearts-row {
@@ -47,12 +60,6 @@
 
 .heart.filled { color: #ff4d4d; }
 .heart.empty  { color: #333; }
-
-.score-display {
-  color: #fff;
-  font-size: 1.2rem;
-  direction: rtl;
-}
 
 /* ===== PROGRESS BAR ===== */
 /* Sits on the left, fills upward as score increases */
@@ -287,4 +294,44 @@
     padding: 22px 16px;
     border-radius: 26px;
   }
+}
+
+/* ===== NEW: SLASH SCARS ON BACKGROUND ===== */
+.scar-svg { z-index: 2; }
+
+.scar-line {
+  stroke: rgba(255, 220, 160, 0.85);
+  stroke-width: 3;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 5px rgba(255, 200, 100, 0.9));
+  animation: scarFlash 0.6s ease-out forwards;
+}
+
+@keyframes scarFlash {
+  0%   { opacity: 1;   stroke-width: 5; }
+  100% { opacity: 0;   stroke-width: 1; }
+}
+
+/* ===== NEW: ALIEN PROGRESS PIPS ===== */
+.alien-counter {
+  position: absolute;
+  bottom: 14px;
+  right: 12px;
+  display: flex;
+  gap: 4px;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.alien-pip {
+  font-size: 18px;
+  opacity: 0.3;
+  filter: grayscale(1);
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.alien-pip.done {
+  opacity: 1;
+  filter: grayscale(0);
+  transform: scale(1.2);
 }

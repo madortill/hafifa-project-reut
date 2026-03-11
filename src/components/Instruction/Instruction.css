@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-    min-height: 100vh;
+    min-height: 100%;
     background-color: transparent; /* הרקע מגיע מהקומפוננטה האב או ה-Body */
     color: white;
     direction: rtl;
@@ -46,8 +46,8 @@
 .card {
     background-color: #b1a48e;
     color: black;
-    width: 6rem;
-    height: 6rem;
+    width: 5rem;
+    height: 5rem;
     border-radius: 1.5rem;
     border: #35110D solid 3px;
     display: flex;
