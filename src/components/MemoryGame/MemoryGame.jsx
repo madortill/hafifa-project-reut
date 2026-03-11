@@ -8,7 +8,6 @@ import astronautImg from "../../assets/images/astronaut.svg";
 
 import { useNavigate } from "react-router-dom";
 
-
 const cardsData = [
   {
     id: 1,
@@ -54,8 +53,8 @@ const cardsData = [
   }
 ];
 
-const MemoryGame=({setArrowVisible})=> {
-          setArrowVisible(false);
+const MemoryGame = ({ setArrowVisible }) => {
+  setArrowVisible(false);
 
   const navigate = useNavigate();
   const [cards, setCards] = useState([]);
@@ -66,7 +65,6 @@ const MemoryGame=({setArrowVisible})=> {
   useEffect(() => {
     shuffleCards();
   }, []);
-
 
   const shuffleCards = () => {
     const shuffled = [...cardsData].sort(() => Math.random() - 0.5);
@@ -84,15 +82,13 @@ const MemoryGame=({setArrowVisible})=> {
     ) {
       return;
     }
-
     setFlippedIds(prev => [...prev, id]);
   };
 
   useEffect(() => {
     if (flippedIds.length === 2) {
       const [firstId, secondId] = flippedIds;
-
-      const firstCard = cards.find(c => c.id === firstId);
+      const firstCard  = cards.find(c => c.id === firstId);
       const secondCard = cards.find(c => c.id === secondId);
 
       if (firstCard.pairId === secondCard.pairId) {
@@ -101,9 +97,7 @@ const MemoryGame=({setArrowVisible})=> {
           setFlippedIds([]);
         }, 500);
       } else {
-        setTimeout(() => {
-          setFlippedIds([]);
-        }, 1000);
+        setTimeout(() => setFlippedIds([]), 1000);
       }
     }
   }, [flippedIds, cards]);
@@ -116,73 +110,60 @@ const MemoryGame=({setArrowVisible})=> {
 
   return (
     <div className="memory-screen">
-      <div className="header">
-      </div>
       <p className="instructions">
         התאימו בין סוג האסטרואיד לבין מה שהוא הורס
       </p>
 
       <div className="board">
         {cards.map(card => {
-          const isFlipped =
-            flippedIds.includes(card.id) ||
-            matchedIds.includes(card.id);
-
-          const isMatched = matchedIds.includes(card.id);
+          const isFlipped  = flippedIds.includes(card.id) || matchedIds.includes(card.id);
+          const isMatched  = matchedIds.includes(card.id);
 
           return (
             <div
               key={card.id}
-              className={`card ${isFlipped ? "flipped" : ""} ${
-                isMatched ? "matched" : ""
-              }`}
+              className={`card ${isFlipped ? "flipped" : ""} ${isMatched ? "matched" : ""}`}
               onClick={() => handleFlip(card.id)}
             >
               <div className="card-inner">
                 <div className="card-front">
                   <img src={card.front} alt="asteroid" />
                 </div>
-
                 <div className="card-back">
-                  {card.backType === "text" ? (
-                    <span>{card.backContent}</span>
-                  ) : (
-                    <img src={card.backContent} alt="match" />
-                  )}
+                  {card.backType === "text"
+                    ? <span>{card.backContent}</span>
+                    : <img src={card.backContent} alt="match" />
+                  }
                 </div>
               </div>
             </div>
           );
         })}
       </div>
-{gameOver && (
-  <div className="memory-popup-overlay">
-    <div className="memory-popup">
-      <h2 className="memory-title">כל הכבוד!</h2>
 
-      <p className="memory-subtitle">
-        עכשיו אתם זוכרים את ההבדל בין סוגי האסטרואידים
-      </p>
+      {/* ── WIN POPUP — styled exactly like AstroidNinja win/lose modals ── */}
+      {gameOver && (
+        <div className="ninja-modal-overlay">
+          <div className="ninja-modal">
+            {/* corner asteroids, same as win/lose screens */}
+            <img src={asteroidImg} alt="asteroid" className="side-astroid" id="astroide3" />
+            <img src={asteroidImg} alt="asteroid" className="side-astroid" id="astroide4" />
 
-      <div className="memory-buttons">
-        <button
-          className="memory-btn"
-          onClick={shuffleCards}
-        >
-          שחק שוב
-        </button>
+            <h2>כל הכבוד! <br />עכשיו אתם זוכרים את ההבדל בין סוגי האסטרואידים</h2>
 
-        <button
-          className="memory-btn"
-          onClick={() => navigate("/cordination")}
-        >
-          המשך בלומדה
-        </button>
-      </div>
-    </div>
-  </div>
-)}
+            <div className="modal-two-btns">
+              <button className="play-btn" onClick={shuffleCards}>
+                שחק שוב
+              </button>
+              <button className="play-btn play-btn-secondary" onClick={() => navigate("/cordination")}>
+                המשך בלומדה
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
-}
+};
+
 export default MemoryGame;

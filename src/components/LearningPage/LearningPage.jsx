@@ -65,7 +65,7 @@ const handleBack = () => {
 
       <Header chapterName={pageData.chapterName} />
       <img src={tillLogo} className="till-logo" alt="logo" />
-      <img src={astroide} onClick={handleBack} id="astroide1" className="astroide" alt="astroide" />
+      <img src={astroide} onClick={handleBack} id="astroideLeft" className="astroide" alt="astroide" />
       <img src={astroide} onClick={handleNext} id="astroide2" className="astroide" alt="astroide" />
  <div className="page-container">
       <div className="page-content">
@@ -105,7 +105,9 @@ const handleBack = () => {
    
        {(showNextArrow && isNextArrowVisible) && (
           <div className="bounce-arrow">
-            <svg onClick={handleNext} className="arrow-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg onClick={handleNext} className={`arrow-svg ${currentPage === 0 ? 'hide-arrow' : ''}`}
+
+            fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
             </svg>
           </div>

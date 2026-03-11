@@ -293,6 +293,7 @@ margin: 0;
     overflow: hidden; /* מונע גלילה - הכל חייב להיכנס למסך */
     color: white;
     direction: rtl;
+    min-height: 100vh; /* מבטיח גובה מינימלי של המסך */
 }
 
 /* ===== Header ===== */
@@ -301,6 +302,7 @@ margin: 0;
     flex-shrink: 0; /* מונע מההדר להתכווץ */
     width: 100%;
     height: auto;
+    padding-top: 50px;
     min-height: 140px;
     display: flex;
     flex-direction: column;
@@ -369,11 +371,13 @@ margin: 0;
 .footer-nav {
     flex-shrink: 0; /* מבטיח שהפוטר לא ייעלם */
     width: 100%;
-    padding-bottom: 20px; /* רווח מהקצה התחתון */
+    padding-bottom:5px; /* רווח מהקצה התחתון */
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
+        padding-top: 20px;
+
 }
 
 .learn-text {

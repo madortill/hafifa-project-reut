@@ -1,10 +1,7 @@
 import React from 'react';
 import './Instruction.css';
-
-// ייבוא התמונות לפי המשתנים שביקשת
-import astroide from "../../assets/images/asteroid.svg"; // אם תרצה להוסיף רקע אסטרואידים
+import astroide from "../../assets/images/asteroid.svg"; 
 import earth from "../../assets/images/earth.svg";
-import alien from "../../assets/images/alien.svg";
 import Header from '../Header/Header';
 
 const Instruction = () => {

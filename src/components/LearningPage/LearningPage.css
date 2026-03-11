@@ -66,7 +66,7 @@ body {
   opacity: 0.7;
 }
 
-#astroide1 {
+#astroideLeft {
   top: 40vh;
   left: -19px;
 }
@@ -89,20 +89,17 @@ body {
   align-items: center;
   padding: 0 5vw 0;
   box-sizing: border-box;
+  min-height: 100%;
 }
 
 
 .page-content {
-   width: 90%;
   text-align: center;
   color: white;
   background: rgba(40, 40, 40, 0.75);
-  padding: 15%;
   border-radius: 16px;
   backdrop-filter: blur(6px);
-
-    font-size: 1rem;
-
+  font-size: 1rem;
   width: 100%;
   max-width: 340px;
   padding: 20px;
@@ -110,7 +107,7 @@ body {
   color: white;
   text-align: center;
 
-  max-height: 70vh;
+  max-height: 85vh;
   overflow-y: auto;
 }
 
@@ -148,18 +145,20 @@ body {
     
 
 .page-content {
-    width: 100%;
+    width: 90%;
     flex: 1; /* מאפשר לתוכן לגדול */
     display: flex;
     flex-direction: column;
     justify-content: center; /* ממרכז את הקומפוננטה הפנימית אנכית */
     align-items: center;
-    margin-top: 30%;
+    margin-top: 45%;
     margin-bottom: 0;
     /* מניעת גלילה פנימית וקיבוע הגודל */
     max-height: 70%; 
     max-width: 90%;
+    max-width: 280px;
     overflow: hidden; 
+    max-height: 500px;
 }
 
 .page-content > * {

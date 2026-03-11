@@ -42,7 +42,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 140px; 
+    padding-top: 27%; 
     box-sizing: border-box;
     z-index: 1;
 }
@@ -132,12 +132,12 @@
 .alien-graphic {
     width: 40%;
     position: relative;
-    left:-30%;
+    left:-35%;
 }
 
 /* תיקונים למסכים קטנים מאוד */
 @media (max-width: 380px) {
-    .end-main-container { padding-top: 135px; }
+    .end-main-container { padding-top: 30%; }
     .end-title { font-size: 1.6rem; }
     .summary-navbar-img { width: 85%; }
 }
