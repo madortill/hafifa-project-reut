@@ -131,16 +131,23 @@ body {
 
 .curved-text {
   fill: white;
-  font-size: 10rem;
-  font-weight: bold;
-  letter-spacing: 4px;
-
+  
   /* התיקון לסדר המילים */
-  direction: rtl; 
   unicode-bidi: isolate; /* שומר על סדר המילים המקורי בעברית */
   
   /* מונע מהטקסט "לקפוץ" או להתהפך בגלל ה-RTL */
+}
+.curved-text {
+  font-size: 10rem;
+  letter-spacing: 1px;
+  fill: white;
+  font-weight: bold;
+  
+  unicode-bidi: isolate;
+  direction: rtl;
+
   dominant-baseline: text-after-edge; 
+  font-size: clamp(60px, 6vw, 40px);
 }
 
 

@@ -7,7 +7,7 @@ import level3 from "../../assets/images/level3.svg"
 import level4 from "../../assets/images/level4.svg"
 import level5 from "../../assets/images/level5.svg"
 import learningData from "../../data.json";
-const Header = ({ chapterName }) => {
+const Header = ({ chapterName , imgId}) => {
 const progressImages = [level1, level2, level3, level4, level5];
 
 const currentPage = learningData.pages.find(
@@ -24,11 +24,20 @@ const currentPage = learningData.pages.find(
   const currentImage = progressImages[imageIndex];
   return (
     <header className="header-container">
-         <img
-        src={currentImage}
-        alt="progress"
-        className="progress-image"
-      />
+          {imgId === undefined && (
+        <img
+          src={currentImage}
+          alt="progress"
+          className="progress-image"
+        />
+      )}
+          {imgId !== undefined && (
+        <img
+          src={progressImages[imgId]}
+          alt="progress"
+          className="progress-image"
+        />
+      )}
       <svg
         viewBox="0 0 800 400"
         preserveAspectRatio="xMinYMid meet"
@@ -37,19 +46,24 @@ const currentPage = learningData.pages.find(
         <defs>
           <path
             id="curve"
-            d="M0,250 
-               C120,240 200,200 280,140 
-               C360,80 460,100 560,170 
-               C660,240 720,200 800,190"
+            d="M800,190 
+              C720,200 660,240 560,170 
+              C460,100 360,80 280,140 
+              C200,200 120,240 0,250"
           />
         </defs>
 
         <use href="#curve" id="curve-path" />
         <text className="curved-text">
-          <textPath href="#curve" startOffset="50%" textAnchor="middle" side="right" >
-            {chapterName}
-          </textPath>
-        </text>
+        <textPath
+          href="#curve"
+          startOffset="50%"
+          textAnchor="middle"
+          direction="rtl"
+          unicode-bidi="plaintext"
+        >{chapterName}
+        </textPath>
+      </text>
 
         <g transform="translate(740,165) scale(0.25)">
           <path d="M134.979,109.125c0.466,1.445,0.846,2.931,1.13,4.415c0.366,1.916,2.043,3.249,3.924,3.249c0.25,0,0.503-0.023,0.757-0.072 c2.17-0.415,3.592-2.511,3.177-4.681c-0.346-1.805-0.808-3.61-1.374-5.366c-0.677-2.102-2.928-3.259-5.034-2.579 C135.455,104.769,134.3,107.023,134.979,109.125z"/>

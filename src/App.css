@@ -56,7 +56,9 @@ pointer-events: none;
   height: 4rem;
   width: 4rem;
 }
-
+* {
+    box-sizing: border-box;
+}
 
 .star{
   width: 2px;

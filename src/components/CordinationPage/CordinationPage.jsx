@@ -52,8 +52,10 @@ const CordinationPage = () => {
 
     return (
         <div className="page-container" style={{ pointerEvents: 'auto' }}>
+            <img src={asteroidImg} className="decor-asteroid ast-left" alt="asteroid" />
+            <img src={asteroidImg} className="decor-asteroid ast-right" alt="asteroid" />
             <header className="page-header">
-                <Header chapterName={currentPage.title}/>
+                <Header chapterName={currentPage.title} imgId={3} />
                 <img src={tillLogo} alt="Logo" className="till-logo" />
                     <h3 className="curved-title-text">{secondryTitle[count]}</h3>
                 <div className="title-area">
@@ -73,7 +75,7 @@ const CordinationPage = () => {
                     </div>
 
                     <div className="asteroids-scatter">
-                        {[1, 2, 3, 4].map((i) => (
+                        {[1, 2, 3].map((i) => (
                             <img 
                                 key={i}
                                 src={asteroidImg} 
@@ -98,7 +100,7 @@ const CordinationPage = () => {
             </main>
 
             <footer className="footer-nav">
-                {currentPage.showLearnText && <h2 className="learn-text">בואו נלמד</h2>}
+                
                 {currentPage.type !== "asteroids" && (
                   <>
                     <div className="bounce-arrow">

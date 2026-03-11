@@ -9,7 +9,6 @@ import dotTeen from '../../assets/images/teen.svg';
 import dotDevil from '../../assets/images/devilDot.svg';
 import adultImg from '../../assets/images/oldAs.svg';
 import dotIcon from '../../assets/images/babydot.svg';
-import doubleArrowDown from '../../assets/images/next.svg';
 import Instruction from "../Instruction/Instruction.jsx";
 const Carusel = ({ onLastSlideChange }) => { 
 

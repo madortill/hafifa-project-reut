@@ -1,21 +1,4 @@
-/* ===== Layout ===== */
 
-.page-container {
-    height: 100dvh;
-    width: 100%;
-margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    direction: rtl;
-    padding: 16px;
-    box-sizing: border-box;
-    color: white;
-    font-family: 'hebbo', sans-serif;
-    background: radial-gradient(ellipse at center, #1a1a2e 0%, #080810 100%);
-    overflow: hidden;
-    direction: rtl;
-}
 
 /* ===== Header ===== */
 
@@ -33,11 +16,7 @@ margin: 0;
     margin-top: -10px;
 }
 
-.curved-text {
-    fill: white;
-    font-size: 3rem;
-    font-weight: bold;
-}
+
 
 /* ===== Content ===== */
 
@@ -46,7 +25,6 @@ margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
     width: 100%;
     gap: 10%;
 }
@@ -206,7 +184,7 @@ margin: 0;
     transition: transform 0.2s;
     filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
     pointer-events: auto;
-    z-index: 5;
+    z-index: 3;
 
 }
 @keyframes float {
@@ -217,23 +195,51 @@ margin: 0;
     transform: translateY(-3px);
   }
 }
-.ast-1 { width: 22%; top: 10%; left: 15%; }
-.ast-2 { width: 10%; bottom: 15%; right: 10%; }
-.ast-3 { width: 13%; top: 50%; left: 5%; }
-.ast-4 { width: 16%; bottom: -10%; left: 20%; }
+.ast-1 {
+       position: absolute;
+
+    width: 18%;
+    top: 8%;
+    left: 8%;
+}
+
+.ast-2 {
+       position: absolute;
+
+    width: 14%;
+    top: 25%;
+    right: 6%;
+}
+
+.ast-3 {
+       position: absolute;
+
+    width: 15%;
+    bottom: 25%;
+    left: 5%;
+}
+
+.ast-4 {
+       position: absolute;
+
+    width: 17%;
+    bottom: 10%;
+    right: 20%;
+}
 
 /* האסטרואיד המרכזי עם ה-? */
 .main-asteroid-wrapper {
-    position: absolute;
-    bottom: 10%;
-    left: 40%;
-    cursor: pointer;
+   position: absolute;
+    bottom: 12%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .main-ast {
-    width: 90px;
+       position: absolute;
+bottom: 0;
+    width: 40%;
         animation: pulse-animation 2s ease-in-out 0.2s infinite alternate;
-
     position: static; /* מנטרל את ה-absolute של המחלקה הכללית */
     
 }
@@ -294,6 +300,8 @@ margin: 0;
     color: white;
     direction: rtl;
     min-height: 100vh; /* מבטיח גובה מינימלי של המסך */
+    padding: 16px;
+    box-sizing: border-box;
 }
 
 /* ===== Header ===== */
@@ -323,7 +331,6 @@ margin: 0;
     font-size: 1.2rem;
     text-align: center;
     margin-top: 140px;
-    padding: 0 10px;
 }
 
 /* ===== Content Section ===== */
@@ -333,7 +340,7 @@ margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-evenly; /* מחלק רווחים שווה בשווה */
+ 
     width: 100%;
     min-height: 0; /* חשוב ל-flexbox כדי לא לחרוג */
 }
@@ -376,7 +383,7 @@ margin: 0;
     flex-direction: column;
     align-items: center;
     gap: 5px;
-        padding-top: 20px;
+        padding-bottom: 20px;
 
 }
 
@@ -386,19 +393,7 @@ margin: 0;
     font-weight: bold;
 }
 
-.bounce-arrow {
-    cursor: pointer;
-    animation: bounce 2s infinite;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.arrow-svg {
-    width: 45px;
-    height: 45px;
-    color: white;
-}
 
 /* אנימציה */
 @keyframes bounce {
@@ -409,7 +404,7 @@ margin: 0;
 
 /* התאמה למסכים קטנים מאוד */
 @media (max-height: 650px) {
-    .curved-title-text { font-size: 1.4rem; margin-top: 50px; }
+    .curved-title-text { font-size: 1.1rem; margin-top: 60px; }
     .page-header { min-height: 100px; }
     .image-container { max-height: 25vh; }
 }

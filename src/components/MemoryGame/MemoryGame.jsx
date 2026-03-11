@@ -61,11 +61,7 @@ const MemoryGame = ({ setArrowVisible }) => {
   const [flippedIds, setFlippedIds] = useState([]);
   const [matchedIds, setMatchedIds] = useState([]);
   const [gameOver, setGameOver] = useState(false);
-
-  useEffect(() => {
-    shuffleCards();
-  }, []);
-
+  
   const shuffleCards = () => {
     const shuffled = [...cardsData].sort(() => Math.random() - 0.5);
     setCards(shuffled);
@@ -73,6 +69,11 @@ const MemoryGame = ({ setArrowVisible }) => {
     setMatchedIds([]);
     setGameOver(false);
   };
+  
+  useEffect(() => {
+    shuffleCards();
+  }, []);
+
 
   const handleFlip = (id) => {
     if (
