@@ -20,7 +20,18 @@ const currentPage = learningData.pages.find(
     chapterId - 1,
     progressImages.length - 1
   );
+const devtoolsOpen =
+  window.outerWidth - window.innerWidth > 160 ||
+  window.outerHeight - window.innerHeight > 160;
 
+const isRealMobile =
+  /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) &&
+  !devtoolsOpen;
+
+const displayTitle = isRealMobile
+  ? [...chapterName].reverse().join("")
+  : chapterName;
+  
   const currentImage = progressImages[imageIndex];
   return (
     <header className="header-container">
@@ -40,16 +51,16 @@ const currentPage = learningData.pages.find(
       )}
       <svg
         viewBox="0 0 800 400"
-        preserveAspectRatio="xMinYMid meet"
+        preserveAspectRatio="xMidYMid meet"
         className="curve-svg"
       >
         <defs>
           <path
             id="curve"
-            d="M800,190 
-              C720,200 660,240 560,170 
-              C460,100 360,80 280,140 
-              C200,200 120,240 0,250"
+            d="M0,250 
+               C120,240 200,200 280,140 
+               C360,80 460,100 560,170 
+               C660,240 720,200 800,190"
           />
         </defs>
 
@@ -57,11 +68,11 @@ const currentPage = learningData.pages.find(
         <text className="curved-text">
         <textPath
           href="#curve"
-          startOffset="50%"
+          startOffset="60%"
           textAnchor="middle"
           direction="rtl"
           unicode-bidi="plaintext"
-        >{chapterName}
+        >{displayTitle}
         </textPath>
       </text>
 

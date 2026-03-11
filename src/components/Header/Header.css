@@ -65,7 +65,6 @@
   fill: none;
   stroke-dasharray: 1000;
   stroke-dashoffset: 1000;
-  animation: draw 3s linear forwards;
 }
 
 @keyframes draw {
@@ -130,16 +129,8 @@ body {
 }
 
 .curved-text {
-  fill: white;
-  
-  /* התיקון לסדר המילים */
-  unicode-bidi: isolate; /* שומר על סדר המילים המקורי בעברית */
-  
-  /* מונע מהטקסט "לקפוץ" או להתהפך בגלל ה-RTL */
-}
-.curved-text {
   font-size: 10rem;
-  letter-spacing: 1px;
+  letter-spacing: 3px;
   fill: white;
   font-weight: bold;
   
