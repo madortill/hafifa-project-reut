@@ -7,7 +7,6 @@ import brokenEarth from "../../assets/images/brokenEarth.svg";
 import lavian from "../../assets/images/lavian.svg";
 import cordinationImg from "../../assets/images/cordination.svg";
 import coorImg from "../../assets/images/coorImg.svg";
-import nextBtn from "../../assets/images/next.svg";
 import asteroidImg from "../../assets/images/asteroid.svg";
 import Header from "../Header/Header";
 import { useNavigate } from "react-router-dom";
