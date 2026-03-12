@@ -69,7 +69,7 @@ const MemoryGame = ({ setArrowVisible }) => {
     setMatchedIds([]);
     setGameOver(false);
   };
-  
+
   useEffect(() => {
     shuffleCards();
   }, []);
@@ -147,8 +147,8 @@ const MemoryGame = ({ setArrowVisible }) => {
         <div className="ninja-modal-overlay">
           <div className="ninja-modal">
             {/* corner asteroids, same as win/lose screens */}
-            <img src={asteroidImg} alt="asteroid" className="side-astroid" id="astroide3" />
-            <img src={asteroidImg} alt="asteroid" className="side-astroid" id="astroide4" />
+            <img src={asteroidImg} alt="asteroid" className="side-astroid" id="astroide5" />
+            <img src={asteroidImg} alt="asteroid" className="side-astroid" id="astroide6" />
 
             <h2>כל הכבוד! <br />עכשיו אתם זוכרים את ההבדל בין סוגי האסטרואידים</h2>
 

@@ -45,9 +45,10 @@
 
 .card {
     background-color: #b1a48e;
+    font-size: 1.025rem;
     color: black;
-    width: 5rem;
-    height: 5rem;
+    width: 6rem;
+    height: 5em;
     border-radius: 1.5rem;
     border: #35110D solid 3px;
     display: flex;

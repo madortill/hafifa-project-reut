@@ -9,7 +9,7 @@
   justify-content: space-between;
   padding: 2vh 5vw;
   box-sizing: border-box;
-  
+  border-radius: 10px;
   text-align: center;
   direction: rtl;
   overflow: hidden;
@@ -34,6 +34,7 @@
   width: 100%;
   max-width: clamp(200px, 70vw, 280px);
   margin: auto;
+  box-sizing: border-box;
 }
 
 /* ===== CARDS ===== */
@@ -135,12 +136,12 @@
 /* Matches AstroidNinja .side-astroid + IDs exactly */
 .side-astroid {
   position: absolute;
-  width: clamp(36px, 8vw, 58px);
-  opacity: 0.9;
+  width: clamp(20px, 8vw, 36px);
+  opacity: 0.7;
 }
 
-#astroide3 { top:    -18px; right: -14px; transform: rotate(20deg);  }
-#astroide4 { bottom: -18px; left:  -14px; transform: rotate(-15deg); }
+#astroide5 { top:    0px; right: -2px; transform: rotate(20deg);  }
+#astroide6 { bottom: 0px; left:  -2px; transform: rotate(-15deg); }
 
 /* ===== BUTTONS WRAPPER ===== */
 /* Two buttons stacked, full-width, same gap as other modals */
@@ -208,6 +209,6 @@
   }
 
   .board {
-    gap: 8px;
+    /* gap: 8px; */
   }
 }

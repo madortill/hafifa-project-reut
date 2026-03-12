@@ -105,7 +105,7 @@ const CordinationPage = () => {
                   <>
                     <div className="bounce-arrow">
         <svg onClick={handleNext} className="arrow-svg next-arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                        style={{ cursor: 'pointer', zIndex: 2, position: 'relative' }} >
+                        style={{ cursor: 'pointer', zIndex: 2, position: 'absolute' }} >
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
         </svg>
       </div> 
