@@ -1,4 +1,4 @@
-
+import React from "react";
 import "./Header.css";
 import astronaut from "../../assets/images/astronaut.svg"
 import level1 from "../../assets/images/level1.svg"
@@ -24,13 +24,18 @@ const devtoolsOpen =
   window.outerWidth - window.innerWidth > 160 ||
   window.outerHeight - window.innerHeight > 160;
 
-const isRealMobile =
-  /Android|iPhone|iPad|iPod/i.test(navigator.userAgent) &&
-  !devtoolsOpen;
+const curvedTitle = React.useMemo(() => {
+  if (typeof window === "undefined") return chapterName;
 
-const displayTitle = isRealMobile
-  ? chapterName
-  : chapterName;
+  const isMobile =
+    ('ontouchstart' in window || navigator.maxTouchPoints > 0) &&
+    window.innerWidth < 768;
+
+  return isMobile
+    ? Array.from(chapterName).reverse().join("")
+    : chapterName;
+
+}, [chapterName]);
 
   const currentImage = progressImages[imageIndex];
   return (
@@ -76,7 +81,7 @@ const displayTitle = isRealMobile
       startOffset="52%"
       textAnchor="middle"
     >
-      {displayTitle}
+      {curvedTitle}
     </textPath>
   </text>
 
