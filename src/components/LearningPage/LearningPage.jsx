@@ -71,7 +71,10 @@ const handleBack = () => {
  <div className="page-container-learning">
       <div className="page-content">
         {pageData.pageType === "carusel" && <Carousel onLastSlideChange={setIsNextArrowVisible} />}
-        {pageData.pageType === "game" && <MemoryGame setArrowVisible={setIsNextArrowVisible} />}
+        {pageData.pageType === "game" && 
+        (<>
+        <p>{pageData.content}</p>
+         <MemoryGame setArrowVisible={setIsNextArrowVisible} /></>)}
         {pageData.pageType === "instruction" && <Instruction />}
         {/* {pageData.pageType === "cordination" && <Cordination />} */}
         {pageData.id === 1 && (

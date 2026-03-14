@@ -54,14 +54,26 @@ const cardsData = [
 ];
 
 const MemoryGame = ({ setArrowVisible }) => {
-  setArrowVisible(false);
 
+  useEffect(() => {
+    setArrowVisible(false);
+  }, []);
+
+  
   const navigate = useNavigate();
   const [cards, setCards] = useState([]);
   const [flippedIds, setFlippedIds] = useState([]);
   const [matchedIds, setMatchedIds] = useState([]);
   const [gameOver, setGameOver] = useState(false);
   
+  useEffect(() => {
+    if (matchedIds.length === cardsData.length) {
+      setTimeout(() => {
+        setGameOver(true);
+        setArrowVisible(true);
+      }, 600);
+    }
+  }, [matchedIds]);
   const shuffleCards = () => {
     const shuffled = [...cardsData].sort(() => Math.random() - 0.5);
     setCards(shuffled);
@@ -111,10 +123,7 @@ const MemoryGame = ({ setArrowVisible }) => {
 
   return (
     <div className="memory-screen">
-      <p className="instructions">
-        התאימו בין סוג האסטרואיד לבין מה שהוא הורס
-      </p>
-
+      
       <div className="board">
         {cards.map(card => {
           const isFlipped  = flippedIds.includes(card.id) || matchedIds.includes(card.id);

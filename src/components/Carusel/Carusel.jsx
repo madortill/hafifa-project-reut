@@ -36,31 +36,33 @@ const imgDot=[dotIcon,dotTeen,dotDevil]
   ];
 
   const nextSlide = () => {
-    if (currentIndex < slidesData.length - 1) setCurrentIndex(currentIndex + 1);
-  };
+setCurrentIndex(prev =>
+  prev < slidesData.length - 1 ? prev + 1 : prev
+);  };
 
-  const handelNext = () => {
-    <Instruction/>
-  };
+
+// useEffect(() => {
+//     const isLastSlide = currentIndex === slidesData.length - 1;
+    
+//     // בודקים שהפונקציה קיימת לפני שמפעילים אותה כדי למנוע קריסה
+//     if (typeof onLastSlideChange === 'function') {
+//       if (isLastSlide) {
+//         onLastSlideChange(true);
+//       } else {
+//         onLastSlideChange(false);
+//       }
+//     }
+//     // ניקוי: כשהקרוסלה נסגרת, מחזירים את החץ למצב גלוי
+//     return () => {
+//       if (typeof onLastSlideChange === 'function') onLastSlideChange(true);
+//     };
+//   }, [currentIndex, onLastSlideChange]);
 
 useEffect(() => {
-    const isLastSlide = currentIndex === slidesData.length - 1;
-    
-    // בודקים שהפונקציה קיימת לפני שמפעילים אותה כדי למנוע קריסה
-    if (typeof onLastSlideChange === 'function') {
-      if (isLastSlide) {
-        onLastSlideChange(true);
-      } else {
-        onLastSlideChange(false);
-      }
-    }
-    // ניקוי: כשהקרוסלה נסגרת, מחזירים את החץ למצב גלוי
-    return () => {
-      if (typeof onLastSlideChange === 'function') onLastSlideChange(true);
-    };
-  }, [currentIndex, onLastSlideChange]);
-
-
+  if (onLastSlideChange) {
+    onLastSlideChange(currentIndex === slidesData.length - 1);
+  }
+}, [currentIndex]);
 
 
   const prevSlide = () => {
