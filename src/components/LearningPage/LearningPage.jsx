@@ -104,9 +104,9 @@ const handleBack = () => {
         /> }   
         </div>
    
-       {(showNextArrow && isNextArrowVisible) && (
+       {(showNextArrow && isNextArrowVisible && currentPage !== 0) && (
           <div className="bounce-arrow">
-            <svg onClick={handleNext} className={`arrow-svg ${currentPage === 0 ? 'hide-arrow' : ''}`}
+            <svg onClick={handleNext} className={`arrow-svg`}
 
             fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />

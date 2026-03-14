@@ -1,6 +1,7 @@
 /* ===== CONTAINER ===== */
 /* Pushed lower to clear the page header */
 .ninja-container {
+  user-select: none;
   position: absolute;
   width: 90%;
   max-width: 380px;

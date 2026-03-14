@@ -185,7 +185,7 @@
 /* האסטרואיד המרכזי עם ה-? */
 .main-asteroid-wrapper {
     position: absolute;
-    bottom: -60%;
+    bottom: -20%;
     left: 36%;
     transform: translateX(-50%);
    }
@@ -227,7 +227,7 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    background-color: #0b0d17;
+  background: radial-gradient(circle at center, #1b2735 0%, #090a0f 100%);
     overflow: hidden; 
     color: white;
     direction: rtl;

@@ -1,6 +1,6 @@
 .end-page-wrapper {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     overflow: hidden; /* חובה למניעת גלילה */
     background-color: #1a1a1a;
     background-image: radial-gradient(circle, #333 1px, transparent 1px);
