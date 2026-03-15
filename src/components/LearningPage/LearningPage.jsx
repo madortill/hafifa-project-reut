@@ -244,14 +244,14 @@ const LearningPage = () => {
                 onClick={handleNext}
               />
               <p>{pageData.content2}</p>
-              <div className="bottom-section">
+              {/* <div className="bottom-section">
                 <img
                   src={nextBtn}
                   onClick={handleNext}
                   className="next-btn"
                   alt="next"
                 />
-              </div>
+              </div> */}
             </>
           )}
 
