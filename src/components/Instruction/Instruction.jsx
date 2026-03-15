@@ -3,8 +3,11 @@ import './Instruction.css';
 import astroide from "../../assets/images/asteroid.svg"; 
 import earth from "../../assets/images/earth.svg";
 import Header from '../Header/Header';
+import { Navigate, useNavigate } from "react-router-dom";
 
 const Instruction = () => {
+    const navigate = useNavigate();
+
   return (
     <>
     <div className="game-wrapper">
@@ -37,7 +40,7 @@ const Instruction = () => {
         למשחק
       </button> */}
 
-      {/* <div className="bounce-arrow">
+      {/* <div className="bounce-arrow" onClick={() => navigate("/memory-game")}>
         <svg className="arrow-svg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 13l-7 7-7-7m14-8l-7 7-7-7" />
         </svg>

@@ -9,7 +9,9 @@ import cordinationImg from "../../assets/images/cordination.svg";
 import coorImg from "../../assets/images/coorImg.svg";
 import asteroidImg from "../../assets/images/asteroid.svg";
 import Header from "../Header/Header";
+import nextBtn from "../../assets/images/next.svg"
 import { useNavigate } from "react-router-dom";
+
 
 const CordinationPage = () => {
     const [count, setCount] = useState(0);
@@ -47,13 +49,19 @@ const CordinationPage = () => {
             navigate("/AstroidNinja");
         }
     };
+    const handlePrev = (e) => {
+        if (e) e.stopPropagation(); 
+        if (count > 0) {
+            setCount(prev => prev - 1);
+        }
+    };
 
     const currentPage = info[count];
 
     return (
         <div className="page-container" style={{ pointerEvents: 'auto' }}>
-            <img src={asteroidImg} className="decor-asteroid ast-left" alt="asteroid" />
-            <img src={asteroidImg} className="decor-asteroid ast-right" alt="asteroid" />
+            <img src={asteroidImg} className="decor-asteroid ast-left" alt="asteroid" onClick={handlePrev} />
+            <img src={asteroidImg} className="decor-asteroid ast-right" alt="asteroid" onClick={handleNext} />
             <header className="page-header">
                 <Header chapterName={currentPage.title} imgId={3} />
                 <img src={tillLogo} alt="Logo" className="till-logo" />
@@ -112,6 +120,10 @@ const CordinationPage = () => {
       </>
                 )}
             </footer>
+
+            {count !==1 && <div className="bottom-section">
+                  <img src={nextBtn} onClick={handleNext} className="next-btn" alt="next" />
+                </div>}
         </div>
     );
 };
